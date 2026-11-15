@@ -148,3 +148,20 @@ document.documentElement.classList.replace('no-js', 'js');
  function refresh(){const today=calendarDay(new Date());dates.forEach(el=>{const date=new Date(el.dateTime);if(!Number.isFinite(date.getTime()))return;const days=calendarDay(date)-today;el.textContent=Math.abs(days)<30?relative.format(days,'day'):Math.abs(days)<365?relative.format(Math.trunc(days/30),'month'):relative.format(Math.trunc(days/365),'year');});}
  refresh();setInterval(refresh,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
 })();
+
+/* Native modal focus management; original image links work without JavaScript. */
+(() => {
+ const links=[...document.querySelectorAll('a[data-lightbox]')];
+ const dialog=document.querySelector('#image-viewer');
+ if(!links.length||!dialog?.showModal)return;
+ const image=dialog.querySelector('figure img'),caption=dialog.querySelector('figcaption'),counter=dialog.querySelector('[data-image-counter]');
+ const previous=dialog.querySelector('[data-image-previous]'),next=dialog.querySelector('[data-image-next]'),original=dialog.querySelector('[data-image-original]');
+ let index=0,trigger,scrollStyle='';
+ function show(value){index=(value+links.length)%links.length;const link=links[index];const thumbnail=link.querySelector('img');image.alt=thumbnail?.alt||'';image.width=Number(thumbnail?.getAttribute('width'))||1600;image.height=Number(thumbnail?.getAttribute('height'))||900;image.src=link.href;caption.textContent=image.alt;counter.textContent=`${index+1} / ${links.length}`;original.href=link.dataset.original||link.href;previous.hidden=next.hidden=links.length<2;}
+ links.forEach((link,i)=>link.addEventListener('click',event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();trigger=link;show(i);scrollStyle=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();}));
+ previous.addEventListener('click',()=>show(index-1));next.addEventListener('click',()=>show(index+1));
+ dialog.addEventListener('keydown',event=>{if(event.key==='ArrowLeft'||event.key==='ArrowRight'){event.preventDefault();show(index+(event.key==='ArrowRight'?1:-1));}});
+ dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
+ dialog.addEventListener('close',()=>{document.body.style.overflow=scrollStyle;image.removeAttribute('src');trigger?.focus({preventScroll:true});});
+ image.addEventListener('error',()=>{caption.textContent='Deze afbeelding kon niet worden geladen. Probeer ‘Origineel openen’.';});
+})();
