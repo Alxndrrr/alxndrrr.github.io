@@ -219,3 +219,17 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
  .home-ghost .currently-content {grid-template-columns:56px minmax(0,1fr);}
  .home-ghost .currently-carousel .currently-cover img {height:80px;}
 }
+
+.imported-author-avatar {width:80px;height:80px;border-radius:50%;object-fit:cover;margin-bottom:20px;}
+.home-ghost .alx-home-mixed-feed {padding-top:0;}
+.legacy-series-page {margin-bottom:64px;}
+.legacy-series-page>p {font-family:var(--font-body-custom);margin-bottom:32px;}
+.legacy-series-page h1 {font-family:'Pixelify Sans',sans-serif;color:#ff88c7;font-size:3.6rem;}
+.legacy-series-item {display:grid;grid-template-columns:90px minmax(0,1fr);gap:22px;padding:24px 0;border-bottom:1px solid rgba(201,193,218,.15);}
+.legacy-series-item>img {width:90px;height:auto;border-radius:4px;}
+.legacy-series-item h2 {font-size:2.6rem;line-height:1.2;margin:0 0 14px;}
+.legacy-series-details {font-family:var(--font-body-custom);font-size:1.4rem;line-height:1.7;}
+.legacy-series-details .alxndrr-toplist-meta-row {display:block;}
+.legacy-series-details a {color:var(--color-tag);text-decoration:underline;}
+
+.legacy-series-item.no-poster {grid-template-columns:1fr;}
