@@ -80,23 +80,6 @@ document.documentElement.classList.replace('no-js', 'js');
     nav?.addEventListener('click', event => {if(event.target.closest('a'))close();});
     mobile.addEventListener('change', () => {if(!mobile.matches)close();});
 })();
-(() => {
-    const input=document.querySelector('#search-query');
-    if(!input)return;
-    const rows=[...document.querySelectorAll('[data-search]')];
-    const status=document.querySelector('#search-status');
-    function filter(){
-        const query=input.value.trim().toLocaleLowerCase('nl');
-        const terms=query.split(/\s+/).filter(Boolean);
-        let count=0;
-        rows.forEach(row=>{row.hidden=!terms.every(term=>row.dataset.search.toLocaleLowerCase('nl').includes(term));if(!row.hidden)count++;});
-        status.textContent=`${count} ${count===1?'resultaat':'resultaten'}`;
-    }
-    input.value=new URLSearchParams(location.search).get('q')||'';
-    input.addEventListener('input',filter);
-    input.form.addEventListener('submit',event=>{event.preventDefault();filter();});
-    filter();
-})();
 /* Desktop overflow menu adapted from the theme's dropdown.js; valid sibling links. */
 (() => {
     const menu=document.querySelector('.gh-head-menu');
