@@ -158,18 +158,27 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .currently-slide {grid-area:1/1;visibility:hidden;pointer-events:none;}
 .currently-slide:first-child,.currently-slide.is-active {visibility:visible;pointer-events:auto;}
 .currently-slides:has(.is-active) .currently-slide:not(.is-active) {visibility:hidden;pointer-events:none;}
-.currently-carousel .home-currently {padding-bottom:40px;}
+.currently-carousel .home-currently {padding:24px;}
 .currently-cover img {border-radius:4px;}
-.currently-indicator {position:absolute;right:18px;bottom:10px;display:flex;gap:7px;color:#fff;font-family:var(--font-pixel);font-size:1.5rem;line-height:1;pointer-events:none;}
-.indicator-divider {color:#aaa1c3;}
+.currently-indicator {position:absolute;right:18px;bottom:12px;display:flex;gap:6px;pointer-events:none;}
+.indicator-block {display:block;width:7px;height:7px;border-radius:1px;background:#aaa1c3;}
+.indicator-block.is-active {background:#ff70bb;}
 .currently-page {margin-bottom:64px;}
 .currently-page .home-section-heading h1 {font-family:'Pixelify Sans',sans-serif;font-size:4rem;color:#ff88c7;}
 .currently-page-intro {font-family:var(--font-body-custom);margin-bottom:28px;}
 .currently-list {display:grid;gap:24px;}
 .currently-list .home-currently {height:auto;min-height:172px;}
 .currently-overview-link:focus-visible {outline-offset:5px;border-radius:16px;}
-@media(min-width:1000px) {.currently-carousel .home-currently {padding:14px 20px 26px;}.currently-carousel .currently-cover img {height:96px;}}
+@media(min-width:1000px) {.currently-carousel .home-currently {padding:12px 20px;}.currently-carousel .currently-cover img {height:96px;}}
 @media(max-width:767px) {
  html,body {scrollbar-width:none;}
  html::-webkit-scrollbar,body::-webkit-scrollbar {display:none;width:0;}
+}
+
+.currently-copy {display:flex;flex-direction:column;justify-content:center;align-self:stretch;}
+@media(min-width:1000px) {
+ .currently-list {grid-template-columns:repeat(2,minmax(0,1fr));align-items:stretch;}
+ .currently-carousel .currently-copy h2 {font-size:2.4rem;}
+ .currently-carousel .currently-copy .currently-activity {font-size:1.5rem;}
+ .currently-carousel .currently-platform {font-size:1.4rem;}
 }

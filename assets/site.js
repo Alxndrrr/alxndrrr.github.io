@@ -114,12 +114,13 @@ document.documentElement.classList.replace('no-js', 'js');
  const slides=[...carousel.querySelectorAll('[data-currently-slide]')];
  if(slides.length<2)return;
  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
- const interval=Math.max(2,Number(carousel.dataset.interval)||2)*1000;
+ const interval=Math.max(2,Number(carousel.dataset.interval)||3)*1000;
  let index=0,timer,start,suppressClick=false;
- const position=carousel.querySelector('[data-currently-position]');
+ const indicator=carousel.querySelector('.currently-indicator');
+ const dots=[...carousel.querySelectorAll('[data-currently-dot]')];
  carousel.tabIndex=0;
  carousel.setAttribute('aria-label','Waar ik nu mee bezig ben. Veeg of gebruik de pijltjestoetsen voor een andere kaart.');
- function show(next){index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.inert=!active;slide.setAttribute('aria-hidden',String(!active));});if(position)position.textContent=String(index+1);}
+ function show(next){index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.inert=!active;slide.setAttribute('aria-hidden',String(!active));});dots.forEach((dot,i)=>dot.classList.toggle('is-active',i===index));if(indicator)indicator.setAttribute('aria-label',`Kaart ${index+1} van ${slides.length}`);}
  function sync(){clearInterval(timer);if(!reduced.matches&&!document.hidden&&!start&&!carousel.matches(':hover')&&!carousel.contains(document.activeElement))timer=setInterval(()=>show(index+1),interval);}
  carousel.addEventListener('pointerdown',event=>{if(!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0))return;suppressClick=false;start={id:event.pointerId,x:event.clientX,y:event.clientY};clearInterval(timer);event.target.closest('.currently-overview-link')?.setPointerCapture(event.pointerId);});
  carousel.addEventListener('pointerup',event=>{
