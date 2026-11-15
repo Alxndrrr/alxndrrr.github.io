@@ -1,0 +1,125 @@
+/* Mobile navigation adapted from Ghost theme assets/js/init.js (MIT). */
+document.documentElement.classList.replace('no-js', 'js');
+/* Share rich micropost nodes across desktop/mobile slots, preserving media state
+   and avoiding duplicate Ghost card IDs when the same post is in both feeds. */
+(function () {
+    const desktop = document.querySelector(".alx-home-desktop");
+    const mixed = document.querySelector(".alx-home-mixed-feed");
+    if (!desktop || !mixed) return;
+
+    const posts = new Map();
+    const parking = document.createElement("div");
+    parking.hidden = true;
+    mixed.after(parking);
+
+    [desktop, mixed].forEach((feed, index) => {
+        feed.querySelectorAll(".alx-micro-card").forEach((card) => {
+            const id = card.getAttribute("data-alx-micro-id");
+            if (!id) return;
+            const slot = document.createElement("template");
+            card.before(slot);
+            if (!posts.has(id)) posts.set(id, {card, slots: []});
+            const post = posts.get(id);
+            post.slots[index] = slot;
+            if (post.card !== card) card.remove();
+        });
+    });
+
+    const wide = window.matchMedia("(min-width: 1100px)");
+    function placePosts() {
+        posts.forEach(({card, slots}) => {
+            const slot = slots[wide.matches ? 0 : 1];
+            if (slot) slot.after(card);
+            else parking.appendChild(card);
+        });
+    }
+    placePosts();
+    wide.addEventListener("change", placePosts);
+})();
+
+
+(() => {
+    const button = document.querySelector('.gh-burger');
+    const nav = document.querySelector('#main-navigation');
+    const root = document.documentElement;
+    const mobile = matchMedia('(max-width:767px)');
+    const background = [...document.querySelectorAll('.site-content,.site-footer')];
+    let scrollPosition = 0;
+    function close(restoreFocus = false) {
+        if (!document.body.classList.contains('gh-head-open')) return;
+        document.body.classList.remove('gh-head-open');
+        root.classList.remove('gh-navigation-open');
+        root.style.removeProperty('--gh-navigation-scroll-top');
+        button.setAttribute('aria-expanded', 'false');
+        button.setAttribute('aria-label', 'Menu openen');
+        background.forEach(el => el.inert = false);
+        window.scrollTo({top:scrollPosition,behavior:'instant'});
+        if (restoreFocus) button.focus();
+    }
+    button?.addEventListener('click', () => {
+        if (document.body.classList.contains('gh-head-open')) return close();
+        if (!mobile.matches) return;
+        scrollPosition = window.scrollY;
+        root.style.setProperty('--gh-navigation-scroll-top', `${-scrollPosition}px`);
+        root.classList.add('gh-navigation-open');
+        document.body.classList.add('gh-head-open');
+        button.setAttribute('aria-expanded','true');
+        button.setAttribute('aria-label','Menu sluiten');
+        background.forEach(el => el.inert = true);
+    });
+    document.addEventListener('keydown', event => {
+        if (!document.body.classList.contains('gh-head-open')) return;
+        if (event.key === 'Escape') {event.preventDefault();close(true);}
+        if (event.key === 'Tab') {
+            const nodes = [...document.querySelector('#gh-head').querySelectorAll('a,button')].filter(el => el.getClientRects().length);
+            const first=nodes[0],last=nodes.at(-1);
+            if(event.shiftKey && document.activeElement===first){event.preventDefault();last.focus();}
+            else if(!event.shiftKey && document.activeElement===last){event.preventDefault();first.focus();}
+        }
+    });
+    nav?.addEventListener('click', event => {if(event.target.closest('a'))close();});
+    mobile.addEventListener('change', () => {if(!mobile.matches)close();});
+})();
+(() => {
+    const input=document.querySelector('#search-query');
+    if(!input)return;
+    const rows=[...document.querySelectorAll('[data-search]')];
+    const status=document.querySelector('#search-status');
+    function filter(){
+        const query=input.value.trim().toLocaleLowerCase('nl');
+        const terms=query.split(/\s+/).filter(Boolean);
+        let count=0;
+        rows.forEach(row=>{row.hidden=!terms.every(term=>row.dataset.search.toLocaleLowerCase('nl').includes(term));if(!row.hidden)count++;});
+        status.textContent=`${count} ${count===1?'resultaat':'resultaten'}`;
+    }
+    input.value=new URLSearchParams(location.search).get('q')||'';
+    input.addEventListener('input',filter);
+    input.form.addEventListener('submit',event=>{event.preventDefault();filter();});
+    filter();
+})();
+/* Desktop overflow menu adapted from the theme's dropdown.js; valid sibling links. */
+(() => {
+    const menu=document.querySelector('.gh-head-menu');
+    const nav=menu?.querySelector('.nav');
+    if(!nav)return;
+    const items=[...nav.children];
+    const mobile=matchMedia('(max-width:767px)');
+    let more;
+    function close(){document.body.classList.remove('is-dropdown-open');more?.querySelector('button')?.setAttribute('aria-expanded','false');const list=more?.querySelector('.gh-dropdown');if(list)list.hidden=true;}
+    function arrange(){
+        close();more?.remove();items.forEach(item=>nav.appendChild(item));
+        nav.style.flexWrap=mobile.matches?'':'nowrap';
+        if(mobile.matches||nav.scrollWidth<=menu.clientWidth)return;
+        more=document.createElement('li');more.className='nav-overflow';
+        const button=document.createElement('button');button.className='nav-more-toggle';button.type='button';button.setAttribute('aria-label','Meer navigatie');button.setAttribute('aria-expanded','false');button.setAttribute('aria-controls','overflow-navigation');
+        button.innerHTML='<svg aria-hidden="true" viewBox="0 0 32 32" fill="currentColor"><circle cx="8" cy="16" r="2.667"/><circle cx="16" cy="16" r="2.667"/><circle cx="24" cy="16" r="2.667"/></svg>';
+        const list=document.createElement('ul');list.className='gh-dropdown';list.id='overflow-navigation';list.hidden=true;
+        more.append(button,list);nav.appendChild(more);
+        for(let index=items.length-1;index>=0&&nav.scrollWidth>menu.clientWidth;index--)list.prepend(items[index]);
+        button.addEventListener('click',()=>{const open=list.hidden;close();list.hidden=!open;button.setAttribute('aria-expanded',String(open));document.body.classList.toggle('is-dropdown-open',open);});
+        more.addEventListener('keydown',event=>{if(event.key==='Escape'){close();button.focus();}});
+    }
+    document.addEventListener('click',event=>{if(more&&!more.contains(event.target))close();});
+    new ResizeObserver(arrange).observe(menu);
+    document.fonts.ready.then(arrange);
+})();
