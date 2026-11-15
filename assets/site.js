@@ -106,3 +106,28 @@ document.documentElement.classList.replace('no-js', 'js');
     new ResizeObserver(arrange).observe(menu);
     document.fonts.ready.then(arrange);
 })();
+
+/* Currently: data comes from src/_data/currently.json. */
+(() => {
+ const carousel=document.querySelector('.currently-carousel');
+ if(!carousel)return;
+ const slides=[...carousel.querySelectorAll('[data-currently-slide]')];
+ if(slides.length<2)return;
+ const controls=carousel.querySelector('.currently-controls');
+ const dots=[...controls.querySelectorAll('[data-slide-index]')];
+ const pause=controls.querySelector('.currently-pause');
+ const reduced=matchMedia('(prefers-reduced-motion:reduce)');
+ const interval=Math.max(5,Number(carousel.dataset.interval)||7)*1000;
+ let index=0,paused=reduced.matches,timer;
+ function show(next){index=next;slides.forEach((slide,i)=>slide.hidden=i!==index);dots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===index)));}
+ function sync(){clearInterval(timer);if(!paused&&!document.hidden&&!carousel.matches(':hover')&&!carousel.contains(document.activeElement))timer=setInterval(()=>show((index+1)%slides.length),interval);}
+ function label(){pause.textContent=paused?'Afspelen':'Pauze';pause.setAttribute('aria-label',paused?'Automatisch wisselen starten':'Automatisch wisselen pauzeren');}
+ controls.hidden=false;
+ dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);sync();}));
+ pause.addEventListener('click',()=>{paused=!paused;label();sync();});
+ carousel.addEventListener('mouseenter',sync);carousel.addEventListener('mouseleave',sync);
+ carousel.addEventListener('focusin',sync);carousel.addEventListener('focusout',()=>setTimeout(sync,0));
+ document.addEventListener('visibilitychange',sync);
+ reduced.addEventListener('change',()=>{paused=reduced.matches;label();sync();});
+ label();sync();
+})();

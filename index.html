@@ -62,6 +62,7 @@
 <main id="site-main" class="home-flow" aria-label="Alxndrr, van boven naar beneden">
     <h1 class="visually-hidden">Alxndrr — films, series, games en tech</h1>
 
+    <div class="home-top">
     
     <a class="home-section home-intro" data-home-block="intro" href="/over/">
         <img src="/assets/media/21952a80e3-alxndrr_round.png" alt="" width="1000" height="1000">
@@ -70,15 +71,36 @@
     
 
     
-    <section class="home-section home-currently" data-home-block="currently" aria-label="Wat ik nu speel">
-        <img class="currently-backdrop" src="/assets/media/currently/modern-warfare-4-backdrop.webp" alt="" width="2560" height="1440">
-        <div class="currently-content">
-            <a class="currently-cover" href="https://www.vgchartz.com/game/236230/call-of-duty-modern-warfare-4/" aria-label="Call of Duty: Modern Warfare 4 op VGChartz"><img src="/assets/media/currently/modern-warfare-4-ps5.png" alt="Cover van Call of Duty: Modern Warfare 4" width="286" height="350"></a>
-            <div class="currently-copy"><h2>Call of Duty: Modern Warfare 4</h2><p>Aan het spelen</p><span class="pixel-label currently-platform">PlayStation 5</span></div>
+    
+    <section class="home-section currently-carousel" data-home-block="currently" data-interval="7" aria-label="Waar ik nu mee bezig ben" aria-roledescription="carrousel">
+        <div class="currently-slides">
+        
+        <article class="home-currently currently-slide" data-currently-slide role="group" aria-roledescription="kaart" aria-label="1 van 2: Call of Duty: Modern Warfare 4" >
+            <img class="currently-backdrop" src="/assets/media/currently/modern-warfare-4-backdrop.webp" alt="" width="1600" height="900">
+            <div class="currently-content">
+                <div class="currently-cover"><img src="/assets/media/currently/modern-warfare-4-ps5.png" alt="Cover van Call of Duty: Modern Warfare 4" width="286" height="400"></div>
+                <div class="currently-copy"><p class="currently-activity">Aan het spelen</p><h2>Call of Duty: Modern Warfare 4</h2><span class="currently-platform">PlayStation 5</span></div>
+            </div>
+        </article>
+        
+        <article class="home-currently currently-slide" data-currently-slide role="group" aria-roledescription="kaart" aria-label="2 van 2: Carrie" hidden>
+            <img class="currently-backdrop" src="/assets/media/currently/carrie-backdrop.jpg" alt="" width="1600" height="900">
+            <div class="currently-content">
+                <div class="currently-cover"><img src="/assets/media/currently/carrie-poster.jpg" alt="Poster van de serie Carrie" width="286" height="400"></div>
+                <div class="currently-copy"><p class="currently-activity">Aan het kijken</p><h2>Carrie</h2><span class="currently-platform">Prime Video</span></div>
+            </div>
+        </article>
+        
         </div>
-        <p class="currently-credit">Cover: <a href="https://www.vgchartz.com/game/236230/call-of-duty-modern-warfare-4/">VGChartz</a> · Artwork: <a href="https://www.callofduty.com/modernwarfare4">Call of Duty</a></p>
+        
+        <div class="currently-controls" hidden>
+            <div class="currently-dots" aria-label="Kies een kaart"><button type="button" data-slide-index="0" aria-label="Toon Call of Duty: Modern Warfare 4" aria-pressed="true"><span></span></button><button type="button" data-slide-index="1" aria-label="Toon Carrie" aria-pressed="false"><span></span></button></div>
+            <button class="currently-pause" type="button" aria-label="Automatisch wisselen pauzeren">Pauze</button>
+        </div>
+        
     </section>
     
+    </div>
 
     
     <section class="home-section home-latest-micro" data-home-block="micro" aria-label="Nieuwste micropost">
@@ -96,7 +118,7 @@
     
 
     <section class="home-section home-recent" data-home-block="recent" aria-labelledby="recent-title">
-        <div class="home-section-heading"><h2 id="recent-title">Recente berichten</h2></div>
+        <div class="home-section-heading"><h2 id="recent-title">Blogs</h2></div>
         <ol class="recent-headlines" role="list"><li><time datetime="2026-10-22T07:49:42.000Z">22 okt 2026</time><a href="/een-nieuwe-seizoen-van-baywatch/">Een nieuwe seizoen van Baywatch</a><span class="recent-category">Series</span></li><li><time datetime="2026-10-22T00:00:00.000Z">22 okt 2026</time><a href="/iphone-duo-reviews/">iPhone Duo reviews</a><span class="recent-category">Tech</span></li><li><time datetime="2026-10-14T06:54:00.000Z">14 okt 2026</time><a href="/narnia-trailer/">Er is een trailer voor de nieuwe Narnia film</a><span class="recent-category">Films</span></li><li><time datetime="2026-10-13T06:57:00.000Z">13 okt 2026</time><a href="/nieuwe-apple-tv-4k/">De nieuwe Apple TV 4K is belachelijk duur</a><span class="recent-category">Tech</span></li><li><time datetime="2026-10-11T00:00:00.000Z">11 okt 2026</time><a href="/heart-of-the-beast-janken-in-de-bioscoop/">Heart of the Beast: janken in de bioscoop</a><span class="recent-category">Films</span></li><li><time datetime="2026-10-05T09:07:00.000Z">5 okt 2026</time><a href="/ik-ben-naar-een-gamebeurs-geweest/">Ik ben naar een gamebeurs geweest</a><span class="recent-category">Games</span></li><li><time datetime="2026-06-06T00:00:00.000Z">6 jun 2026</time><a href="/twee-controllers-en-geen-wifi/">Twee controllers en geen wifi</a><span class="recent-category">Games</span></li></ol>
         <a class="home-archive-link" href="/blog/">Blogarchief <span aria-hidden="true">→</span></a>
     </section>
