@@ -315,3 +315,21 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .image-viewer-button:hover {background:#493052;}
 .image-viewer-controls a {font-size:1.4rem;color:#ffb2c6;text-decoration:underline;text-underline-offset:3px;}
 @media(max-width:480px){.image-viewer {padding:12px;}.image-viewer-controls {flex-wrap:wrap;}.image-viewer-controls a {order:3;flex-basis:100%;text-align:center;}}
+
+/* Year lists: posters lead, with the rank sitting halfway over the lower edge. */
+.stats-page {padding-bottom:56px;}
+.stats-page-header {margin-bottom:32px;}
+.stats-page-header h1 {margin:0 0 12px;font-family:var(--font-heading-custom);font-size:clamp(3.2rem,4vw,4.2rem);line-height:1.05;text-transform:uppercase;color:var(--color-title);}
+.stats-page-header p {margin:0;color:var(--color-content);font-family:var(--font-body-custom);font-size:1.7rem;line-height:1.6;}
+.stats-section-title {margin:0 0 20px;font-family:'Pixelify Sans',sans-serif;font-size:2.8rem;font-weight:600;line-height:1.15;color:#ff88c7;}
+.stats-poster-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:42px 18px;list-style:none;margin:0;padding:0 0 20px;}
+.stats-poster {min-width:0;margin:0;padding:0;}
+.stats-poster-link {display:block;position:relative;isolation:isolate;cursor:zoom-in;border:1px solid #655587;border-radius:6px;background:#19182d;text-decoration:none;}
+.stats-poster-link img {display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;object-position:center bottom;border-radius:5px;}
+.stats-rank {position:absolute;z-index:1;left:50%;bottom:0;transform:translate(-50%,50%);display:grid;place-items:center;width:38px;height:38px;border:3px solid #10112b;border-radius:50%;background:#655587;color:#fff;font-family:var(--font-pixel);font-size:2.3rem;font-weight:400;line-height:1;pointer-events:none;font-variant-numeric:tabular-nums;}
+.stats-poster-link:hover {border-color:#ff88c7;}
+.stats-poster-link:focus-visible {outline:2px solid #ffcf7a;outline-offset:5px;}
+.stats-years {display:flex;flex-wrap:wrap;gap:12px 20px;margin:28px 0;font-family:var(--font-pixel);font-size:1.8rem;}
+.stats-years a {color:#ffb2c6;text-underline-offset:4px;}
+.stats-empty {font-size:1.7rem;line-height:1.7;}
+@media(max-width:767px){.stats-page-header {margin-bottom:28px;}.stats-poster-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 12px;}.stats-rank {width:32px;height:32px;font-size:2rem;}.stats-section-title {font-size:2.5rem;}}
