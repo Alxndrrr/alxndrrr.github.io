@@ -107,27 +107,30 @@ document.documentElement.classList.replace('no-js', 'js');
     document.fonts.ready.then(arrange);
 })();
 
-/* Currently: data comes from src/_data/currently.json. */
+/* Currently: swipe/arrow navigation wraps in both directions. */
 (() => {
  const carousel=document.querySelector('.currently-carousel');
  if(!carousel)return;
  const slides=[...carousel.querySelectorAll('[data-currently-slide]')];
  if(slides.length<2)return;
- const controls=carousel.querySelector('.currently-controls');
- const dots=[...controls.querySelectorAll('[data-slide-index]')];
- const pause=controls.querySelector('.currently-pause');
  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
- const interval=Math.max(5,Number(carousel.dataset.interval)||7)*1000;
- let index=0,paused=reduced.matches,timer;
- function show(next){index=next;slides.forEach((slide,i)=>slide.hidden=i!==index);dots.forEach((dot,i)=>dot.setAttribute('aria-pressed',String(i===index)));}
- function sync(){clearInterval(timer);if(!paused&&!document.hidden&&!carousel.matches(':hover')&&!carousel.contains(document.activeElement))timer=setInterval(()=>show((index+1)%slides.length),interval);}
- function label(){pause.textContent=paused?'Afspelen':'Pauze';pause.setAttribute('aria-label',paused?'Automatisch wisselen starten':'Automatisch wisselen pauzeren');}
- controls.hidden=false;
- dots.forEach((dot,i)=>dot.addEventListener('click',()=>{show(i);sync();}));
- pause.addEventListener('click',()=>{paused=!paused;label();sync();});
+ const interval=Math.max(2,Number(carousel.dataset.interval)||3.5)*1000;
+ let index=0,timer,start;
+ carousel.tabIndex=0;
+ carousel.setAttribute('aria-label','Waar ik nu mee bezig ben. Veeg of gebruik de pijltjestoetsen voor een andere kaart.');
+ function show(next){index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>slide.hidden=i!==index);}
+ function sync(){clearInterval(timer);if(!reduced.matches&&!document.hidden&&!start&&!carousel.matches(':hover')&&!carousel.contains(document.activeElement))timer=setInterval(()=>show(index+1),interval);}
+ carousel.addEventListener('pointerdown',event=>{if(!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0))return;start={id:event.pointerId,x:event.clientX,y:event.clientY};clearInterval(timer);carousel.setPointerCapture(event.pointerId);});
+ carousel.addEventListener('pointerup',event=>{
+  if(!start||start.id!==event.pointerId)return;
+  const dx=event.clientX-start.x,dy=event.clientY-start.y;start=null;
+  if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.3)show(index+(dx<0?1:-1));
+  sync();
+ });
+ carousel.addEventListener('pointercancel',()=>{start=null;sync();});
+ carousel.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight'].includes(event.key))return;event.preventDefault();show(index+(event.key==='ArrowRight'?1:-1));sync();});
  carousel.addEventListener('mouseenter',sync);carousel.addEventListener('mouseleave',sync);
  carousel.addEventListener('focusin',sync);carousel.addEventListener('focusout',()=>setTimeout(sync,0));
- document.addEventListener('visibilitychange',sync);
- reduced.addEventListener('change',()=>{paused=reduced.matches;label();sync();});
- label();sync();
+ document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
+ sync();
 })();
