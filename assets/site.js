@@ -114,23 +114,36 @@ document.documentElement.classList.replace('no-js', 'js');
  const slides=[...carousel.querySelectorAll('[data-currently-slide]')];
  if(slides.length<2)return;
  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
- const interval=Math.max(2,Number(carousel.dataset.interval)||3.5)*1000;
- let index=0,timer,start;
+ const interval=Math.max(2,Number(carousel.dataset.interval)||2)*1000;
+ let index=0,timer,start,suppressClick=false;
+ const position=carousel.querySelector('[data-currently-position]');
  carousel.tabIndex=0;
  carousel.setAttribute('aria-label','Waar ik nu mee bezig ben. Veeg of gebruik de pijltjestoetsen voor een andere kaart.');
- function show(next){index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>slide.hidden=i!==index);}
+ function show(next){index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.inert=!active;slide.setAttribute('aria-hidden',String(!active));});if(position)position.textContent=String(index+1);}
  function sync(){clearInterval(timer);if(!reduced.matches&&!document.hidden&&!start&&!carousel.matches(':hover')&&!carousel.contains(document.activeElement))timer=setInterval(()=>show(index+1),interval);}
- carousel.addEventListener('pointerdown',event=>{if(!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0))return;start={id:event.pointerId,x:event.clientX,y:event.clientY};clearInterval(timer);carousel.setPointerCapture(event.pointerId);});
+ carousel.addEventListener('pointerdown',event=>{if(!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0))return;suppressClick=false;start={id:event.pointerId,x:event.clientX,y:event.clientY};clearInterval(timer);event.target.closest('.currently-overview-link')?.setPointerCapture(event.pointerId);});
  carousel.addEventListener('pointerup',event=>{
   if(!start||start.id!==event.pointerId)return;
   const dx=event.clientX-start.x,dy=event.clientY-start.y;start=null;
+  if(Math.abs(dx)>10||Math.abs(dy)>10)suppressClick=true;
   if(Math.abs(dx)>40&&Math.abs(dx)>Math.abs(dy)*1.3)show(index+(dx<0?1:-1));
   sync();
  });
- carousel.addEventListener('pointercancel',()=>{start=null;sync();});
+ carousel.addEventListener('pointercancel',()=>{start=null;suppressClick=true;sync();});
+ carousel.addEventListener('click',event=>{if(suppressClick){event.preventDefault();suppressClick=false;}},true);
  carousel.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight'].includes(event.key))return;event.preventDefault();show(index+(event.key==='ArrowRight'?1:-1));sync();});
  carousel.addEventListener('mouseenter',sync);carousel.addEventListener('mouseleave',sync);
  carousel.addEventListener('focusin',sync);carousel.addEventListener('focusout',()=>setTimeout(sync,0));
  document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
- sync();
+ show(0);sync();
+})();
+
+/* Static absolute dates remain useful without JS; relative text follows the reader's clock. */
+(() => {
+ const dates=[...document.querySelectorAll('time[data-relative-date]')];
+ if(!dates.length)return;
+ const relative=new Intl.RelativeTimeFormat('nl-NL',{numeric:'auto'});
+ const calendarDay=value=>{const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Amsterdam',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(value);const part=type=>Number(parts.find(p=>p.type===type).value);return Date.UTC(part('year'),part('month')-1,part('day'))/86400000;};
+ function refresh(){const today=calendarDay(new Date());dates.forEach(el=>{const date=new Date(el.dateTime);if(!Number.isFinite(date.getTime()))return;const days=calendarDay(date)-today;el.textContent=Math.abs(days)<30?relative.format(days,'day'):Math.abs(days)<365?relative.format(Math.trunc(days/30),'month'):relative.format(Math.trunc(days/365),'year');});}
+ refresh();setInterval(refresh,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
 })();

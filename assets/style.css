@@ -151,3 +151,25 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
  .home-top:has(.home-intro) .currently-carousel {contain:size;}
  .home-top:has(.home-intro) .home-currently {min-height:0;}
 }
+
+/* All slides share a grid cell: the tallest card sets the mobile height. */
+.currently-overview-link {display:block;height:100%;color:inherit;text-decoration:none;}
+.currently-slides {display:grid;}
+.currently-slide {grid-area:1/1;visibility:hidden;pointer-events:none;}
+.currently-slide:first-child,.currently-slide.is-active {visibility:visible;pointer-events:auto;}
+.currently-slides:has(.is-active) .currently-slide:not(.is-active) {visibility:hidden;pointer-events:none;}
+.currently-carousel .home-currently {padding-bottom:40px;}
+.currently-cover img {border-radius:4px;}
+.currently-indicator {position:absolute;right:18px;bottom:10px;display:flex;gap:7px;color:#fff;font-family:var(--font-pixel);font-size:1.5rem;line-height:1;pointer-events:none;}
+.indicator-divider {color:#aaa1c3;}
+.currently-page {margin-bottom:64px;}
+.currently-page .home-section-heading h1 {font-family:'Pixelify Sans',sans-serif;font-size:4rem;color:#ff88c7;}
+.currently-page-intro {font-family:var(--font-body-custom);margin-bottom:28px;}
+.currently-list {display:grid;gap:24px;}
+.currently-list .home-currently {height:auto;min-height:172px;}
+.currently-overview-link:focus-visible {outline-offset:5px;border-radius:16px;}
+@media(min-width:1000px) {.currently-carousel .home-currently {padding:14px 20px 26px;}.currently-carousel .currently-cover img {height:96px;}}
+@media(max-width:767px) {
+ html,body {scrollbar-width:none;}
+ html::-webkit-scrollbar,body::-webkit-scrollbar {display:none;width:0;}
+}
