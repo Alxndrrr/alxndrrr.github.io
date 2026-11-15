@@ -288,3 +288,8 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
  .home-ghost .alx-home-micro {border-left:0;position:relative;}
  .home-ghost .alx-home-micro::before {content:"";position:absolute;left:0;top:0;bottom:0;width:3px;pointer-events:none;background:linear-gradient(to bottom,rgba(201,193,218,.28) 0 3px,transparent 3px 9px) 0 0 / 3px 9px repeat-y;}
 }
+
+/* Shared poster baseline and single-line labels across home and archives. */
+:is(.home-moments,.alx-moments-archive) .alx-moment-card-media {width:100%;height:auto;aspect-ratio:2/3;align-items:flex-end;}
+:is(.home-moments,.alx-moments-archive) .alx-moment-card-media img {width:100%;height:100%;max-height:100%;object-fit:contain;object-position:center bottom;}
+:is(.home-moments,.alx-moments-archive) .alx-moment-card-title {display:block;min-width:0;width:100%;max-width:100%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
