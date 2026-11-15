@@ -182,3 +182,40 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
  .currently-carousel .currently-copy .currently-activity {font-size:1.5rem;}
  .currently-carousel .currently-platform {font-size:1.4rem;}
 }
+
+/* Ghost homepage structure: rich blog cards left, microposts right. */
+.home-ghost .home-mobile-stream {margin-bottom:48px;}
+.home-ghost .home-moments {margin-top:48px;}
+.home-ghost .alx-home-mixed-feed {padding-top:0;}
+.home-ghost .home-blog-column {min-width:0;}
+@media(min-width:1100px) {
+ .home-ghost-template {--content-width:1200px;}
+ .home-flow.home-ghost {width:min(1200px,calc(100% - 64px));}
+ .home-stream-layout {display:grid;grid-template-columns:minmax(0,2fr) minmax(300px,1fr);column-gap:48px;row-gap:0;align-items:start;}
+ .home-ghost .home-top {grid-column:1;grid-row:1;margin-bottom:40px;}
+ .home-ghost .alx-home-desktop {display:contents;}
+ .home-ghost .home-blog-column {grid-column:1;grid-row:2;}
+ .home-ghost .alx-home-micro {grid-column:2;grid-row:1 / span 2;padding:0 0 0 26px;}
+ .home-ghost .alx-home-micro .home-section-heading h2 {font-size:2.8rem;}
+ .home-ghost .alx-home-micro .alx-micro-card::before {display:none;}
+ .home-ghost .alx-home-micro .alx-micro-card {padding:28px 0;border-bottom:1px solid rgba(201,193,218,.12);}
+ .home-ghost .alx-home-micro .alx-micro-card:first-child {padding-top:0;}
+ .home-ghost .alx-home-desktop:has(.alx-home-micro .alx-micro-card) .alx-home-regular-feed {grid-column:auto;grid-template-columns:repeat(2,minmax(0,1fr));gap:36px 28px;}
+ .home-ghost .home-mobile-stream {display:none;}
+ .home-ghost .home-top .home-intro {padding:20px;gap:14px;}
+ .home-ghost .home-top .home-intro img {width:52px;height:52px;flex-basis:52px;}
+ .home-ghost .home-top .home-intro p {font-size:1.4rem;}
+ .home-ghost .currently-content {grid-template-columns:68px minmax(0,1fr);gap:14px;}
+ .home-ghost .currently-carousel .currently-cover img {height:96px;}
+ .home-ghost .currently-carousel .currently-copy h2 {font-size:2.3rem;}
+}
+@media(min-width:1000px) and (max-width:1099px) {
+ .home-ghost .home-top {grid-template-columns:1fr;}
+ .home-ghost .home-top .currently-carousel {contain:none;}
+ .home-ghost .home-top .home-currently {min-height:172px;}
+}
+@media(min-width:1100px) {
+ .home-ghost-template .site-footer.outer {padding-inline:32px;}
+ .home-ghost .currently-content {grid-template-columns:56px minmax(0,1fr);}
+ .home-ghost .currently-carousel .currently-cover img {height:80px;}
+}
