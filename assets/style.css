@@ -164,7 +164,7 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .indicator-block {display:block;width:7px;height:7px;border-radius:1px;background:#aaa1c3;}
 .indicator-block.is-active {background:#ff70bb;}
 .currently-page {margin-bottom:64px;}
-.currently-page .home-section-heading h1 {font-family:'Pixelify Sans',sans-serif;font-size:4rem;color:#ff88c7;}
+.currently-page .home-section-heading h1 {font-family:var(--font-heading-custom);font-size:clamp(2.8rem,4vw,4.2rem);font-weight:800;line-height:1.05;text-transform:uppercase;color:var(--color-title);margin:0;}
 .currently-page-intro {font-family:var(--font-body-custom);margin-bottom:28px;}
 .currently-list {display:grid;gap:24px;}
 .currently-list .home-currently {height:auto;min-height:172px;}
@@ -196,7 +196,7 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
  .home-ghost .alx-home-desktop {display:contents;}
  .home-ghost .home-blog-column {grid-column:1;grid-row:2;}
  .home-ghost .alx-home-micro {grid-column:2;grid-row:1 / span 2;padding:0 0 0 26px;}
- .home-ghost .alx-home-micro .home-section-heading h2 {font-size:2.8rem;}
+ .home-ghost .alx-home-micro .home-section-heading h2 {font-size:3.4rem;}
  .home-ghost .alx-home-micro .alx-micro-card::before {display:none;}
  .home-ghost .alx-home-micro .alx-micro-card {padding:28px 0;border-bottom:1px solid rgba(201,193,218,.12);}
  .home-ghost .alx-home-micro .alx-micro-card:first-child {padding-top:0;}
@@ -233,3 +233,37 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .legacy-series-details a {color:var(--color-tag);text-decoration:underline;}
 
 .legacy-series-item.no-poster {grid-template-columns:1fr;}
+
+/* A separate top row, followed by the two editorial columns. */
+@media(min-width:1100px) {
+ .home-ghost .home-top {grid-column:1 / -1;grid-row:1;margin-bottom:40px;}
+ .home-ghost .alx-home-micro {grid-row:2;}
+ .home-ghost .home-top .home-intro {padding:24px;gap:22px;}
+ .home-ghost .home-top .home-intro img {width:64px;height:64px;flex-basis:64px;}
+ .home-ghost .home-top .home-intro p {font-size:1.6rem;line-height:1.65;}
+ .home-ghost .currently-content {grid-template-columns:76px minmax(0,1fr);gap:20px;}
+ .home-ghost .currently-carousel .currently-cover img {height:96px;}
+ .home-ghost .currently-carousel .currently-copy h2 {font-size:2.7rem;}
+ .home-ghost .home-moments {width:100%;}
+}
+.home-moments .home-section-heading {justify-content:flex-start;gap:20px;align-items:center;}
+/* The old 270px poster frame created empty space above small posters. */
+.alx-moments-archive .alx-moment-card-media {width:100%;height:auto;align-items:flex-start;}
+.alx-moments-archive .alx-moment-card-media img {width:100%;height:auto;max-height:none;}
+.alx-moments-archive-head {margin-bottom:28px;}
+.alx-moments-section-head {margin-bottom:16px;}
+.alx-moments-group {margin-top:40px;}
+.alx-favorite-subgroup {margin-top:36px;}
+.alx-favorite-subgroup:first-of-type {margin-top:0;}
+.alx-favorite-subgroup-title {margin-bottom:16px;}
+:is(.alx-moments-group-feed,.alx-moments-archive-feed) {row-gap:28px;}
+.pixel-button {display:inline-flex;align-items:center;justify-content:center;gap:12px;min-height:44px;padding:12px 22px;margin-top:28px;font-family:var(--font-pixel);font-size:1.8rem;line-height:1.2;letter-spacing:0;color:#fff;background:#3a2447;border:0;border-radius:0;text-decoration:none;clip-path:polygon(6px 0,calc(100% - 6px) 0,calc(100% - 6px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 6px) calc(100% - 3px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 3px),0 calc(100% - 3px),0 3px,6px 3px);box-shadow:inset 0 3px #c44e90,inset 0 -3px #25172f;}
+.pixel-button:hover {background:#6b2851;color:#fff;text-decoration:none;}
+.pixel-button:focus-visible {outline:0;background:#6b2851;box-shadow:inset 0 0 0 3px #ffcf7a;}
+.pixel-button:active {background:#4c203b;}
+@media(min-width:1100px) {
+ .home-moments .alx-moments-home-feed {gap:20px;}
+ .home-moments .alx-moment-card {flex-basis:calc((100% - 100px)/6);width:calc((100% - 100px)/6);}
+ .home-moments .alx-moment-card-media {height:auto;aspect-ratio:2/3;}
+ .home-moments .alx-moment-card-media img {width:100%;height:auto;max-height:none;}
+}
