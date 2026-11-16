@@ -333,3 +333,16 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .stats-years a {color:#ffb2c6;text-underline-offset:4px;}
 .stats-empty {font-size:1.7rem;line-height:1.7;}
 @media(max-width:767px){.stats-page-header {margin-bottom:28px;}.stats-poster-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 12px;}.stats-rank {width:32px;height:32px;font-size:2rem;}.stats-section-title {font-size:2.5rem;}}
+
+/* Stats opens a compact rating card rather than the full photo gallery. */
+.image-viewer.is-stats-viewer {width:min(320px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:12px 20px 24px;border-radius:12px;}
+.is-stats-viewer .image-viewer-toolbar {justify-content:flex-end;margin-bottom:4px;}
+.is-stats-viewer .image-viewer-button {min-width:44px;min-height:44px;padding:8px;border:0;border-radius:6px;background:transparent;font-size:0;gap:0;}
+.is-stats-viewer .image-viewer-button:hover {background:#2b2341;}
+.is-stats-viewer figure img {width:160px;height:auto;max-width:100%;max-height:min(42dvh,250px);margin:0 auto;}
+.stats-viewer-rating {display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:20px;}
+.stats-viewer-rating .alx-moment-card-rating {margin:0;font-size:2.6rem;line-height:1.2;}
+.stats-viewer-rating [data-image-rating-note] {font-family:var(--font-menu-custom);font-size:1.3rem;color:var(--color-date);}
+.stats-viewer-rating [data-image-rating-note]:empty {display:none;}
+.stats-viewer-rating {display:flex;flex-direction:column;align-items:center;gap:8px;margin-top:16px;}
+.stats-viewer-rating .alx-moment-card-rating {display:block;margin:0;font-size:2.6rem;line-height:1.2;}
