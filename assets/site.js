@@ -159,13 +159,14 @@ document.documentElement.classList.replace('no-js', 'js');
  const controls=dialog.querySelector('.image-viewer-controls'),ratingBox=dialog.querySelector('.stats-viewer-rating'),rating=dialog.querySelector('[data-image-rating]'),ratingNote=dialog.querySelector('[data-image-rating-note]');
  let index=0,trigger,scrollStyle='';
  function show(value){
-  index=(value+links.length)%links.length;const link=links[index],thumbnail=link.querySelector('img'),stats=link.dataset.lightbox==='stats';
+  index=(value+links.length)%links.length;const link=links[index],thumbnail=link.querySelector('img'),stats=link.dataset.lightbox==='stats',titleOnly=stats&&link.dataset.posterTitle==='true';
   dialog.classList.toggle('is-stats-viewer',stats);
+  dialog.classList.toggle('is-title-viewer',titleOnly);
   image.alt=thumbnail?.alt||'';image.width=Number(thumbnail?.getAttribute('width'))||1600;image.height=Number(thumbnail?.getAttribute('height'))||900;image.src=link.href;
-  dialog.setAttribute('aria-label',stats?`${image.alt} – waardering`:'Afbeelding vergroten');
-  caption.textContent=image.alt;caption.hidden=stats;counter.textContent=`${index+1} / ${links.length}`;counter.hidden=stats;
+  dialog.setAttribute('aria-label',stats?(titleOnly?image.alt:`${image.alt} – waardering`):'Afbeelding vergroten');
+  caption.textContent=image.alt;caption.hidden=stats&&!titleOnly;counter.textContent=`${index+1} / ${links.length}`;counter.hidden=stats;
   original.href=link.dataset.original||link.href;original.hidden=stats;controls.hidden=stats;previous.hidden=next.hidden=stats||links.length<2;
-  ratingBox.hidden=!stats;
+  ratingBox.hidden=!stats||titleOnly;
   if(stats){const raw=link.dataset.rating||'',score=Number(raw),known=raw!==''&&Number.isFinite(score)&&score>=0&&score<=5;rating.style.setProperty('--alx-rating-percent',`${known?score*20:0}%`);rating.setAttribute('aria-label',known?`${new Intl.NumberFormat('nl-NL').format(score)} van 5 sterren`:'Nog geen waardering');ratingNote.textContent=known?'':'Nog geen score';}
  }
 
