@@ -401,19 +401,6 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .setup-row dd strong {color:#eee8f3;font-weight:700;}
 @media(max-width:600px){.setup-row {font-size:1.4rem;}.setup-row dt,.setup-row dd {padding:12px 10px;}.setup-group {margin-top:32px;}}
 
-/* Een roze pixelspoor: volle kern, verspringende staart en losse pixels. */
-.article-title-rule {
- position:relative;width:108px;height:18px;border-radius:0;background:none;
-}
-.article-title-rule::before {
- content:'';position:absolute;inset:0;background:var(--color-tag);
- clip-path:polygon(0 6px,6px 6px,6px 0,60px 0,60px 6px,78px 6px,78px 12px,90px 12px,90px 18px,66px 18px,66px 12px,6px 12px,6px 18px,0 18px);
-}
-.article-title-rule::after {
- content:'';position:absolute;top:0;left:78px;width:6px;height:6px;
- background:var(--color-tag);box-shadow:18px 6px 0 var(--color-tag),24px 12px 0 #ff88c7;
-}
-
 /* Eén datumletter op kaarten, archieven en detailpagina’s. */
 .post-card-meta-date,.article-date,.alx-micro-card-meta time,.alx-blog-archive-date {
  font-family:'Space Mono',monospace;font-weight:400;font-style:normal;
@@ -426,3 +413,13 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
  font-family:'Press Start 2P',monospace;font-size:1.8rem;font-weight:400;line-height:1.6;
 }
 @media(max-width:767px){.home-ghost .home-section-heading h2 {font-size:1.6rem;}}
+
+/* Header volgt op desktop dezelfde buitenranden als de huidige pagina. */
+@media(min-width:768px){
+ #gh-head {padding-inline:var(--page-gutter);}
+ #gh-head .gh-head-inner {width:100%;max-width:var(--content-width);margin-inline:auto;}
+}
+@media(min-width:1100px){.home-ghost-template #gh-head {padding-inline:32px;}}
+/* Ook drie cijfers (tot en met 103) passen in de bestaande rangbadge. */
+.stats-rank {font-family:'Press Start 2P',monospace;font-size:1rem;}
+@media(max-width:767px){.stats-rank {font-size:.8rem;}}
