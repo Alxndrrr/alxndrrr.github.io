@@ -121,7 +121,7 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .currently-copy .currently-activity {font-family:var(--font-pixel);font-size:1.8rem;color:#ffcf7a;line-height:1.15;margin:0 0 10px;}
 .currently-copy h2 {font-size:2.8rem;margin-bottom:8px;}
 .currently-slides {height:100%;}
-.home-section-heading h2 {font-family:'Pixelify Sans',sans-serif;font-weight:600;font-size:3.4rem;color:#ff88c7;letter-spacing:0;}
+.home-section-heading h2 {font-family:'Pixelify Sans',sans-serif;font-weight:600;font-size:3.4rem;color:#ffcf7a;letter-spacing:0;}
 .home-section-heading h2::after {content:'';display:block;margin-top:10px;width:32px;height:4px;background:#ff88c7;box-shadow:10px 4px 0 #655587;}
 .home-moments .alx-moments-home-feed {scrollbar-width:none;-ms-overflow-style:none;}
 .home-moments .alx-moments-home-feed::-webkit-scrollbar {display:none;width:0;height:0;}
@@ -400,3 +400,25 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .setup-row dd {text-align:left;}
 .setup-row dd strong {color:#eee8f3;font-weight:700;}
 @media(max-width:600px){.setup-row {font-size:1.4rem;}.setup-row dt,.setup-row dd {padding:12px 10px;}.setup-group {margin-top:32px;}}
+
+/* Getrapte happen uit de vier hoeken; de foto zelf blijft intact. */
+.post-card-image-link {
+ border-radius:0;
+ clip-path:polygon(0 18px,6px 18px,6px 12px,12px 12px,12px 6px,18px 6px,18px 0,
+ calc(100% - 18px) 0,calc(100% - 18px) 6px,calc(100% - 12px) 6px,calc(100% - 12px) 12px,calc(100% - 6px) 12px,calc(100% - 6px) 18px,100% 18px,
+ 100% calc(100% - 18px),calc(100% - 6px) calc(100% - 18px),calc(100% - 6px) calc(100% - 12px),calc(100% - 12px) calc(100% - 12px),calc(100% - 12px) calc(100% - 6px),calc(100% - 18px) calc(100% - 6px),calc(100% - 18px) 100%,
+ 18px 100%,18px calc(100% - 6px),12px calc(100% - 6px),12px calc(100% - 12px),6px calc(100% - 12px),6px calc(100% - 18px),0 calc(100% - 18px));
+}
+.post-card-image-link:focus-visible {clip-path:none;outline:3px solid #ffcf7a;outline-offset:4px;}
+/* Een roze pixelspoor: volle kern, verspringende staart en losse pixels. */
+.article-title-rule {
+ position:relative;width:108px;height:18px;border-radius:0;background:none;
+}
+.article-title-rule::before {
+ content:'';position:absolute;inset:0;background:var(--color-tag);
+ clip-path:polygon(0 6px,6px 6px,6px 0,60px 0,60px 6px,78px 6px,78px 12px,90px 12px,90px 18px,66px 18px,66px 12px,6px 12px,6px 18px,0 18px);
+}
+.article-title-rule::after {
+ content:'';position:absolute;top:0;left:78px;width:6px;height:6px;
+ background:var(--color-tag);box-shadow:18px 6px 0 var(--color-tag),24px 12px 0 #ff88c7;
+}
