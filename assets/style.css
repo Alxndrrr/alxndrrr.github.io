@@ -36,7 +36,7 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 /* Alxndrr homepage: quiet surfaces, pixel lettering and real artwork. */
 :root {--font-pixel:'Tiny5',sans-serif;}
 .viewport::before {display:none;}
-#gh-head .gh-head-logo-title {font-family:'Pixelify Sans',sans-serif;font-weight:700;font-size:3.4rem;color:#ff70bb;letter-spacing:0;text-shadow:1px 1px 0 #a33b79,2px 2px 0 #a33b79,3px 3px 0 #54234f,4px 4px 0 #54234f;filter:none;animation:none;}
+#gh-head .gh-head-logo-title {font-family:'Pixelify Sans',sans-serif;font-weight:700;font-size:3.4rem;color:#ff70bb;letter-spacing:0;text-shadow:3px 3px 0 #a33b79;filter:none;animation:none;}
 #gh-head .gh-head-logo-title::after {display:none;}
 :is(.alx-micro-card-category,.post-card-primary-tag,.alx-moment-card-category,.article-meta-tag,.alx-tags-index-card-name,.recent-category) {font-family:var(--font-pixel);font-weight:400;letter-spacing:.02em;font-size:1.6rem;line-height:1.2;}
 .home-flow {width:min(760px,calc(100% - 48px));margin:28px auto 0;}
@@ -44,7 +44,7 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .home-intro {display:flex;align-items:center;gap:24px;padding:26px;background:#252440;border-radius:16px;color:var(--color-content);text-decoration:none;}
 .home-intro:hover {background:#302b4b;color:var(--color-title);}
 .home-intro img {flex:0 0 82px;width:82px;height:82px;object-fit:contain;}
-.home-intro p {margin:0;font-family:var(--font-body-custom);font-size:1.65rem;line-height:1.75;}
+.home-intro p {margin:0;font-family:'Space Mono',monospace;font-size:1.65rem;line-height:1.75;}
 .home-currently {position:relative;isolation:isolate;overflow:hidden;padding:28px;border-radius:16px;background:#20252a;}
 .currently-backdrop {position:absolute;z-index:-2;inset:-10px;width:calc(100% + 20px);height:calc(100% + 20px);max-width:none;object-fit:cover;filter:blur(5px);opacity:.5;}
 .home-currently::after {position:absolute;content:'';inset:0;z-index:-1;background:linear-gradient(90deg,rgba(16,17,29,.5),rgba(16,17,29,.85));}
@@ -141,7 +141,7 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 @media(max-width:767px) {.home-top {margin-bottom:36px;gap:28px;}}
 @media(max-width:350px) {:root {--page-gutter:18px;}.currently-content {grid-template-columns:74px minmax(0,1fr);gap:16px;}.currently-copy h2 {font-size:2.4rem;}}
 
-#gh-head .gh-head-logo-title .logo-dot {color:#ffcf7a;text-shadow:1px 1px 0 #b88744,2px 2px 0 #b88744,3px 3px 0 #685033,4px 4px 0 #685033;}
+#gh-head .gh-head-logo-title .logo-dot {color:#ffcf7a;text-shadow:3px 3px 0 #b88744;}
 .currently-carousel {touch-action:pan-y;user-select:none;}
 .currently-carousel img {-webkit-user-drag:none;}
 .currently-carousel:focus-visible {outline-offset:5px;border-radius:16px;}
