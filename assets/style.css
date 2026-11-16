@@ -398,3 +398,10 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .setup-row dd strong {color:#eee8f3;font-weight:700;}
 .setup-row dd p {margin:6px 0 0;}
 @media(max-width:600px){.setup-row {grid-template-columns:90px minmax(0,1fr);font-size:1.4rem;}.setup-row dt {padding-right:12px;}.setup-row dd {padding-left:16px;}.setup-group {margin-top:32px;}}
+
+.setup-page .stats-page-header,.setup-intro,.setup-group h2 {text-align:center;}
+.setup-group dl {max-width:640px;margin:0 auto;}
+.setup-row {grid-template-columns:minmax(0,1fr) minmax(0,1fr);}
+.setup-row dt {padding:12px 20px;text-align:right;}
+.setup-row dd {padding:12px 20px;text-align:left;}
+@media(max-width:600px){.setup-row {grid-template-columns:minmax(0,1fr) minmax(0,1fr);}.setup-row dt {padding-right:16px;}.setup-row dd {padding-left:16px;}}
