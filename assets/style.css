@@ -401,18 +401,6 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .setup-row dd strong {color:#eee8f3;font-weight:700;}
 @media(max-width:600px){.setup-row {font-size:1.4rem;}.setup-row dt,.setup-row dd {padding:12px 10px;}.setup-group {margin-top:32px;}}
 
-/* Getrapte happen uit de vier hoeken; de foto zelf blijft intact. */
-.post-card-image-link,
-.alx-micro-card-body img,
-.article .article-image img,
-.article .gh-content img {
- border-radius:0;
- clip-path:var(--pixel-cut,polygon(0 9px,3px 9px,3px 6px,6px 6px,6px 3px,9px 3px,9px 0,
- calc(100% - 9px) 0,calc(100% - 9px) 3px,calc(100% - 6px) 3px,calc(100% - 6px) 6px,calc(100% - 3px) 6px,calc(100% - 3px) 9px,100% 9px,
- 100% calc(100% - 9px),calc(100% - 3px) calc(100% - 9px),calc(100% - 3px) calc(100% - 6px),calc(100% - 6px) calc(100% - 6px),calc(100% - 6px) calc(100% - 3px),calc(100% - 9px) calc(100% - 3px),calc(100% - 9px) 100%,
- 9px 100%,9px calc(100% - 3px),6px calc(100% - 3px),6px calc(100% - 6px),3px calc(100% - 6px),3px calc(100% - 9px),0 calc(100% - 9px)));
-}
-.post-card-image-link:focus-visible {clip-path:none;outline:3px solid #ffcf7a;outline-offset:4px;}
 /* Een roze pixelspoor: volle kern, verspringende staart en losse pixels. */
 .article-title-rule {
  position:relative;width:108px;height:18px;border-radius:0;background:none;
@@ -426,17 +414,15 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
  background:var(--color-tag);box-shadow:18px 6px 0 var(--color-tag),24px 12px 0 #ff88c7;
 }
 
-/* Drie ritmes in de homefeed, op het bestaande raster van 3px.
-   A: vier traphoeken. B: diagonale vierkante happen. C: ongelijke trappen. */
-.home-ghost :is(.alx-home-regular-feed,.alx-micro-stream,.alx-home-mixed-feed)>article:nth-of-type(3n + 2) {
- --pixel-cut:polygon(0 9px,9px 9px,9px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 9px),calc(100% - 9px) calc(100% - 9px),calc(100% - 9px) 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px));
-}
-.home-ghost :is(.alx-home-regular-feed,.alx-micro-stream,.alx-home-mixed-feed)>article:nth-of-type(3n) {
- --pixel-cut:polygon(0 3px,3px 3px,3px 0,calc(100% - 9px) 0,calc(100% - 9px) 3px,calc(100% - 6px) 3px,calc(100% - 6px) 9px,100% 9px,100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,9px 100%,9px calc(100% - 6px),3px calc(100% - 6px),3px calc(100% - 9px),0 calc(100% - 9px));
-}
-
 /* Eén datumletter op kaarten, archieven en detailpagina’s. */
 .post-card-meta-date,.article-date,.alx-micro-card-meta time,.alx-blog-archive-date {
  font-family:'Space Mono',monospace;font-weight:400;font-style:normal;
 }
 .gh-social-links svg {shape-rendering:crispEdges;}
+
+/* Press Start 2P blijft compact zodat de homekoppen in hun kolom passen. */
+.home-ghost .home-section-heading h2,
+.home-ghost .alx-home-micro .home-section-heading h2 {
+ font-family:'Press Start 2P',monospace;font-size:1.8rem;font-weight:400;line-height:1.6;
+}
+@media(max-width:767px){.home-ghost .home-section-heading h2 {font-size:1.6rem;}}
