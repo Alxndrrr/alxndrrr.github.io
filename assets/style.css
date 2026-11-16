@@ -348,3 +348,7 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .stats-viewer-rating .alx-moment-card-rating {display:block;width:max-content;max-width:100%;margin:0 auto;font-size:2.6rem;line-height:1.2;text-align:center;}
 .stats-viewer-rating [data-image-rating-note] {font-family:var(--font-menu-custom);font-size:1.3rem;color:var(--color-date);}
 .stats-viewer-rating [data-image-rating-note]:empty {display:none;}
+
+.stats-series {margin-top:40px;}
+.alx-micro-card {cursor:pointer;position:relative;}
+.alx-micro-card-destination:focus-visible {position:relative!important;width:auto!important;height:auto!important;clip:auto!important;clip-path:none!important;white-space:normal!important;display:block;padding:8px;color:#ffcf7a;outline:2px solid #ffcf7a;}

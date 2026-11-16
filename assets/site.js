@@ -176,3 +176,17 @@ document.documentElement.classList.replace('no-js', 'js');
  dialog.addEventListener('close',()=>{document.body.style.overflow=scrollStyle;image.removeAttribute('src');trigger?.focus({preventScroll:true});});
  image.addEventListener('error',()=>{caption.hidden=false;caption.textContent=dialog.classList.contains('is-stats-viewer')?'De poster kon niet worden geladen.':'Deze afbeelding kon niet worden geladen. Probeer ‘Origineel openen’.';});
 })();
+
+/* Ghost-style card navigation, preserving links, controls and text selection. */
+(function () {
+ document.querySelectorAll('.alx-micro-card').forEach(card => {
+  const destination = card.querySelector('.alx-micro-card-destination');
+  if (!destination) return;
+  card.addEventListener('click', event => {
+   if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+   if (event.target.closest('a,button,input,textarea,select,label,video,audio,iframe,summary,[contenteditable],.kg-toggle-card')) return;
+   if (window.getSelection().toString()) return;
+   destination.click();
+  });
+ });
+})();
