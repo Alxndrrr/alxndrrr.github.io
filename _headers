@@ -1,0 +1,6 @@
+/rss.xml
+  Content-Type: application/rss+xml; charset=utf-8
+/rss/index.html
+  Content-Type: application/rss+xml; charset=utf-8
+/assets/generated/*
+  Cache-Control: public, max-age=31536000, immutable
