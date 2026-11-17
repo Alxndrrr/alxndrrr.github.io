@@ -445,4 +445,4 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 }
 
 /* Compact pixellabel voor microposts in het blogarchief. */
-.alx-micro-label {display:inline-block;vertical-align:middle;margin-left:6px;padding:5px 7px;background:#ffcf7a;color:#10112b;font-family:"Press Start 2P",monospace;font-size:8px;font-weight:400;line-height:1.5;letter-spacing:0;text-transform:none;white-space:nowrap;clip-path:polygon(3px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 3px,3px 3px);}
+.alx-micro-label {display:inline-block;vertical-align:middle;position:relative;top:-4px;margin-left:5px;padding:3px 5px;background:#ffcf7a;color:#10112b;font-family:"Press Start 2P",monospace;font-size:7px;font-weight:400;line-height:1.4;letter-spacing:0;text-transform:none;white-space:nowrap;clip-path:polygon(3px 0,calc(100% - 3px) 0,calc(100% - 3px) 3px,100% 3px,100% calc(100% - 3px),calc(100% - 3px) calc(100% - 3px),calc(100% - 3px) 100%,3px 100%,3px calc(100% - 3px),0 calc(100% - 3px),0 3px,3px 3px);}
