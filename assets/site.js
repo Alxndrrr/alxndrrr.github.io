@@ -191,3 +191,36 @@ document.documentElement.classList.replace('no-js', 'js');
   });
  });
 })();
+
+/* The explicit release offset keeps the switch identical in every time zone. */
+(() => {
+ const card=document.querySelector('[data-gta-release]');
+ if(!card)return;
+ const release=Date.parse(card.dataset.gtaRelease);
+ if(!Number.isFinite(release))return;
+ const countdown=card.querySelector('[data-gta-countdown]');
+ const playing=card.querySelector('[data-gta-playing]');
+ const clock=card.querySelector('[data-gta-clock]');
+ const raw=card.dataset.gtaProgress;
+ const progress=Number(raw);
+ const known=raw.trim()!==''&&Number.isFinite(progress)&&progress>=0&&progress<=100;
+ if(known){
+  card.querySelector('[data-gta-percent]').textContent=new Intl.NumberFormat('nl-NL',{maximumFractionDigits:2}).format(progress)+'% uitgespeeld';
+  const bar=card.querySelector('[data-gta-bar]');
+  bar.setAttribute('aria-valuenow',String(progress));
+  bar.removeAttribute('aria-valuetext');
+  card.querySelector('[data-gta-fill]').style.width=progress+'%';
+ }
+ function refresh(){
+  const remaining=Math.max(0,Math.ceil((release-Date.now())/1000));
+  countdown.hidden=remaining===0;playing.hidden=remaining>0;
+  if(!remaining)return;
+  const days=Math.floor(remaining/86400);
+  const hours=Math.floor(remaining%86400/3600);
+  const minutes=Math.floor(remaining%3600/60);
+  const seconds=remaining%60;
+  clock.textContent=`${days}d ${String(hours).padStart(2,'0')}u ${String(minutes).padStart(2,'0')}m ${String(seconds).padStart(2,'0')}s`;
+ }
+ refresh();setInterval(refresh,1000);
+ document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
+})();
