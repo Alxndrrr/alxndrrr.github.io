@@ -449,7 +449,8 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .alx-micro-label::before {content:"";position:absolute;inset:1px;z-index:-1;background:#252440;clip-path:var(--micro-shape);}
 
 .about-socials {margin-top:24px;}
-.about-social-links {display:flex;flex-wrap:wrap;gap:12px;}
+.about-social-links {display:flex;flex-wrap:wrap;justify-content:center;gap:12px;}
+.about-social-links span {display:none;}
 .about-social-links a {display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;color:#c9c1da;}
 .about-social-links svg {width:24px;height:24px;fill:currentColor;}
 .about-social-links a:hover {color:#ff70bb;}
