@@ -425,12 +425,12 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 @media(max-width:767px){.stats-rank {font-size:.8rem;}}
 
 /* GTA VI joins the top row; first in reading order on narrow screens. */
-.gta-card {display:flex;align-items:center;gap:18px;min-width:0;padding:16px 20px;background:#252440;border-radius:12px;margin-bottom:24px;}
-.gta-logo {width:100px;height:100px;flex:0 0 100px;object-fit:contain;border-radius:6px;}
+.gta-card {display:flex;align-items:center;gap:18px;min-width:0;padding:16px 20px;background:#a85586;border-radius:0;margin-bottom:24px;position:relative;isolation:isolate;--gta-corners:polygon(9px 0,calc(100% - 9px) 0,calc(100% - 9px) 3px,calc(100% - 3px) 3px,calc(100% - 3px) 9px,100% 9px,100% calc(100% - 9px),calc(100% - 3px) calc(100% - 9px),calc(100% - 3px) calc(100% - 3px),calc(100% - 9px) calc(100% - 3px),calc(100% - 9px) 100%,9px 100%,9px calc(100% - 3px),3px calc(100% - 3px),3px calc(100% - 9px),0 calc(100% - 9px),0 9px,3px 9px,3px 3px,9px 3px);clip-path:var(--gta-corners);}
+.gta-card::before {content:"";position:absolute;inset:1px;background:#252440;clip-path:var(--gta-corners);z-index:-1;}
+.gta-logo {width:100px;height:100px;flex:0 0 100px;object-fit:contain;border-radius:0;}
 .gta-details {min-width:0;flex:1;}
 .gta-card h2 {margin:0 0 8px;font-size:2.2rem;line-height:1.15;}
 .gta-card .gta-clock {margin:0;color:#ffcf7a;font-family:"Space Mono",monospace;font-size:1.7rem;font-variant-numeric:tabular-nums;line-height:1.5;}
-.gta-note {display:block;margin-top:6px;font-size:1.1rem;line-height:1.5;}
 .gta-track {height:10px;margin-top:12px;background:#10112b;border-radius:3px;overflow:hidden;}
 .gta-track span {display:block;width:0;height:100%;background:#ff70bb;}
 @media(min-width:1100px) {
