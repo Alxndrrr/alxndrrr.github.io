@@ -667,3 +667,20 @@ a.stats-poster-link:hover img {border-color:var(--accent-color-1);}
  .post-template .article.image-small .gh-content > h3:first-child {margin-top:0;}
  .post-template .article.image-small .gh-content > h3 + * {margin-top:6px!important;}
 }
+
+/* Mobile homepage blog cards follow the live Ghost reference. */
+@media(max-width:1099px) {
+ .home-ghost .home-mobile-stream {
+  width:min(760px,calc(100vw - 40px));
+  margin-inline:calc((100% - min(760px,100vw - 40px)) / 2);
+ }
+ .home-template .home-mobile-stream .post-card-primary-tag {
+  font-family:var(--font-menu-custom);
+  font-size:1.1rem;
+  line-height:1;
+  letter-spacing:inherit;
+ }
+ .home-template .home-mobile-stream .post-card-meta-date {
+  font-family:var(--font-body-custom);
+ }
+}
