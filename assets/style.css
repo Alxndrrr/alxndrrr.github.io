@@ -467,3 +467,12 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
 .rating-guide-row dt {justify-content:center;align-items:center;}
 .rating-guide-row .alx-moment-card-rating {display:block;margin:0;line-height:1;}
 .rating-guide-row .alx-moment-card-rating::before {display:block;}
+
+/* Equal invisible cover areas keep mixed game formats aligned at the bottom. */
+.alx-moments-archive .alx-moment-card-media {display:flex;align-items:flex-end;justify-content:center;aspect-ratio:2/3;}
+.alx-moments-archive .alx-moment-card-media img {width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
+:is(.alx-moments-archive-description,.currently-page-intro) a {color:#ffb2c6;text-decoration:underline;text-underline-offset:3px;}
+:is(.alx-moments-archive-description,.currently-page-intro) a:hover {color:#ffcf7a;}
+.rating-guide-row {padding:12px 0;}
+.rating-guide-row dd {font-size:1.6rem;line-height:1.45;}
+@media(max-width:767px){.rating-guide-row {gap:6px;}}
