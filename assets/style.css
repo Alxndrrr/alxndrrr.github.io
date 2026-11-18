@@ -301,21 +301,6 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 }
 
 .article-author {font-family:var(--font-menu-custom);font-size:1.4rem;color:var(--color-tag);text-decoration:underline;text-underline-offset:3px;}
-.image-zoom {display:block;cursor:zoom-in;}
-.image-viewer {width:min(1200px,calc(100vw - 32px));max-width:none;max-height:calc(100dvh - 32px);padding:20px;border:1px solid #655587;background:#10112b;color:#eee8f3;overflow:auto;}
-.image-viewer::backdrop {background:rgba(5,6,18,.92);}
-.image-viewer:not([open]) {display:none;}
-.image-viewer-toolbar,.image-viewer-controls {display:flex;align-items:center;justify-content:space-between;gap:12px;}
-.image-viewer-toolbar {margin-bottom:12px;font-family:var(--font-pixel);}
-.image-viewer-toolbar form {margin:0;}
-.image-viewer figure {margin:0;}
-.image-viewer figure img {display:block;width:auto;height:auto;max-width:100%;max-height:calc(100dvh - 230px);object-fit:contain;margin:0 auto;}
-.image-viewer figcaption {font-size:1.4rem;line-height:1.5;margin:12px auto;max-width:70ch;}
-.image-viewer-button {display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:8px 12px;border:1px solid #655587;background:#2b2341;color:#ffd0e7;font:1.6rem var(--font-pixel);cursor:pointer;}
-.image-viewer-button:hover {background:#493052;}
-.image-viewer-controls a {font-size:1.4rem;color:#ffb2c6;text-decoration:underline;text-underline-offset:3px;}
-@media(max-width:480px){.image-viewer {padding:12px;}.image-viewer-controls {flex-wrap:wrap;}.image-viewer-controls a {order:3;flex-basis:100%;text-align:center;}}
-
 /* Year lists: posters lead, with the rank sitting halfway over the lower edge. */
 .stats-page {padding-bottom:56px;}
 .stats-page-header {margin-bottom:32px;}
@@ -324,30 +309,16 @@ html {scrollbar-color:var(--color-tag) var(--color-background);}
 .stats-section-title {margin:0 0 20px;font-family:'Pixelify Sans',sans-serif;font-size:2.8rem;font-weight:600;line-height:1.15;color:#ff88c7;}
 .stats-poster-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:42px 18px;list-style:none;margin:0;padding:0 0 20px;}
 .stats-poster {min-width:0;margin:0;padding:0;}
-.stats-poster-link {display:block;position:relative;isolation:isolate;cursor:zoom-in;border:1px solid #655587;border-radius:6px;background:#19182d;text-decoration:none;}
-.stats-poster-link:not([data-lightbox]) {cursor:pointer;}
+.stats-poster-link {display:block;position:relative;isolation:isolate;border:1px solid #655587;border-radius:6px;background:#19182d;text-decoration:none;}
+a.stats-poster-link {cursor:pointer;}
 .stats-poster-link img {display:block;width:100%;height:auto;aspect-ratio:2/3;object-fit:contain;object-position:center bottom;border-radius:5px;}
 .stats-rank {position:absolute;z-index:1;left:50%;bottom:0;transform:translate(-50%,50%);display:grid;place-items:center;width:38px;height:38px;border:3px solid #10112b;border-radius:50%;background:#655587;color:#fff;font-family:var(--font-pixel);font-size:2.3rem;font-weight:400;line-height:1;pointer-events:none;font-variant-numeric:tabular-nums;}
-.stats-poster-link:hover {border-color:#ff88c7;}
+a.stats-poster-link:hover {border-color:#ff88c7;}
 .stats-poster-link:focus-visible {outline:2px solid #ffcf7a;outline-offset:5px;}
 .stats-years {display:flex;flex-wrap:wrap;gap:12px 20px;margin:28px 0;font-family:var(--font-pixel);font-size:1.8rem;}
 .stats-years a {color:#ffb2c6;text-underline-offset:4px;}
 .stats-empty {font-size:1.7rem;line-height:1.7;}
 @media(max-width:767px){.stats-page-header {margin-bottom:28px;}.stats-poster-grid {grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 12px;}.stats-rank {width:32px;height:32px;font-size:2rem;}.stats-section-title {font-size:2.5rem;}}
-
-/* Stats opens a compact rating card rather than the full photo gallery. */
-.image-viewer.is-stats-viewer {width:min(320px,calc(100vw - 32px));max-height:calc(100dvh - 32px);padding:12px 20px 24px;border-radius:12px;}
-.is-stats-viewer .image-viewer-toolbar {justify-content:flex-end;margin-bottom:12px;}
-.is-stats-viewer .image-viewer-toolbar form {display:flex;}
-.is-stats-viewer .image-viewer-button {position:relative;width:20px;height:20px;min-width:20px;min-height:20px;padding:3px;border:0;border-radius:5px;background:transparent;font-size:0;gap:0;}
-.is-stats-viewer .image-viewer-button::after {content:"";position:absolute;inset:-12px;}
-.is-stats-viewer .image-viewer-button svg {width:14px;height:14px;}
-.is-stats-viewer .image-viewer-button:hover {background:#2b2341;}
-.is-stats-viewer figure img {width:160px;height:auto;max-width:100%;max-height:min(42dvh,250px);margin:0 auto;border-radius:12px;}
-.stats-viewer-rating {display:flex;flex-direction:column;align-items:center;width:160px;max-width:100%;gap:8px;margin:16px auto 0;text-align:center;}
-.stats-viewer-rating .alx-moment-card-rating {display:block;width:max-content;max-width:100%;margin:0 auto;font-size:2.6rem;line-height:1.2;text-align:center;}
-.stats-viewer-rating [data-image-rating-note] {font-family:var(--font-menu-custom);font-size:1.3rem;color:var(--color-date);}
-.stats-viewer-rating [data-image-rating-note]:empty {display:none;}
 
 .stats-series {margin-top:40px;}
 .alx-micro-card {cursor:pointer;position:relative;}

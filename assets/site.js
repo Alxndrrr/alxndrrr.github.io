@@ -149,35 +149,6 @@ document.documentElement.classList.replace('no-js', 'js');
  refresh();setInterval(refresh,60000);document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh();});
 })();
 
-/* Native modal focus management; original image links work without JavaScript. */
-(() => {
- const links=[...document.querySelectorAll('a[data-lightbox]')];
- const dialog=document.querySelector('#image-viewer');
- if(!links.length||!dialog?.showModal)return;
- const image=dialog.querySelector('figure img'),caption=dialog.querySelector('figcaption'),counter=dialog.querySelector('[data-image-counter]');
- const previous=dialog.querySelector('[data-image-previous]'),next=dialog.querySelector('[data-image-next]'),original=dialog.querySelector('[data-image-original]');
- const controls=dialog.querySelector('.image-viewer-controls'),ratingBox=dialog.querySelector('.stats-viewer-rating'),rating=dialog.querySelector('[data-image-rating]'),ratingNote=dialog.querySelector('[data-image-rating-note]');
- let index=0,trigger,scrollStyle='';
- function show(value){
-  index=(value+links.length)%links.length;const link=links[index],thumbnail=link.querySelector('img'),stats=link.dataset.lightbox==='stats',titleOnly=stats&&link.dataset.posterTitle==='true';
-  dialog.classList.toggle('is-stats-viewer',stats);
-  dialog.classList.toggle('is-title-viewer',titleOnly);
-  image.alt=thumbnail?.alt||'';image.width=Number(thumbnail?.getAttribute('width'))||1600;image.height=Number(thumbnail?.getAttribute('height'))||900;image.src=link.href;
-  dialog.setAttribute('aria-label',stats?(titleOnly?image.alt:`${image.alt} – waardering`):'Afbeelding vergroten');
-  caption.textContent=image.alt;caption.hidden=stats&&!titleOnly;counter.textContent=`${index+1} / ${links.length}`;counter.hidden=stats;
-  original.href=link.dataset.original||link.href;original.hidden=stats;controls.hidden=stats;previous.hidden=next.hidden=stats||links.length<2;
-  ratingBox.hidden=!stats||titleOnly;
-  if(stats){const raw=link.dataset.rating||'',score=Number(raw),known=raw!==''&&Number.isFinite(score)&&score>=0&&score<=5;rating.style.setProperty('--alx-rating-percent',`${known?score*20:0}%`);rating.setAttribute('aria-label',known?`${new Intl.NumberFormat('nl-NL').format(score)} van 5 sterren`:'Nog geen waardering');ratingNote.textContent=known?'':'Nog geen score';}
- }
-
- links.forEach((link,i)=>link.addEventListener('click',event=>{if(event.button!==0||event.metaKey||event.ctrlKey||event.shiftKey||event.altKey)return;event.preventDefault();trigger=link;show(i);scrollStyle=document.body.style.overflow;document.body.style.overflow='hidden';dialog.showModal();}));
- previous.addEventListener('click',()=>show(index-1));next.addEventListener('click',()=>show(index+1));
- dialog.addEventListener('keydown',event=>{if(!dialog.classList.contains('is-stats-viewer')&&(event.key==='ArrowLeft'||event.key==='ArrowRight')){event.preventDefault();show(index+(event.key==='ArrowRight'?1:-1));}});
- dialog.addEventListener('click',event=>{if(event.target===dialog)dialog.close();});
- dialog.addEventListener('close',()=>{document.body.style.overflow=scrollStyle;image.removeAttribute('src');trigger?.focus({preventScroll:true});});
- image.addEventListener('error',()=>{caption.hidden=false;caption.textContent=dialog.classList.contains('is-stats-viewer')?'De poster kon niet worden geladen.':'Deze afbeelding kon niet worden geladen. Probeer ‘Origineel openen’.';});
-})();
-
 /* Ghost-style card navigation, preserving links, controls and text selection. */
 (function () {
  document.querySelectorAll('.alx-micro-card').forEach(card => {
