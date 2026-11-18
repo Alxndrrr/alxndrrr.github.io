@@ -441,7 +441,7 @@ a.stats-poster-link:hover {border-color:#ff88c7;}
 .rating-guide-row dt {float:none;width:auto;margin:0;display:flex;align-items:center;gap:12px;}
 .rating-guide-row dd {margin:0;line-height:1.6;}
 .rating-guide-row .alx-moment-card-rating {font-size:2.1rem;flex-shrink:0;}
-.rating-guide-score {font-family:'Space Mono',monospace;font-size:1.4rem;color:#ffcf7a;}
+
 .end-credits {width:100%;text-align:center;padding:24px 0 56px;}
 .gh-content .end-credits section {margin:56px 0;}
 .gh-content .end-credits h2 {font-family:'Press Start 2P',monospace;font-size:1.4rem;line-height:1.8;color:#ffcf7a;margin:0 0 20px;}
@@ -457,3 +457,13 @@ a.stats-poster-link:hover {border-color:#ff88c7;}
  .stats-poster-grid {column-gap:16px;}
  .rating-guide-row {grid-template-columns:minmax(0,1fr);gap:10px;}
 }
+
+/* Frames follow each cover's natural proportions, including game boxes. */
+.alx-moments-archive .alx-moment-card-media {display:block;aspect-ratio:auto;border:0;background:transparent;overflow:visible;}
+.alx-moments-archive .alx-moment-card-media img {display:block;width:100%;height:auto;max-height:none;aspect-ratio:auto;border:1px solid #655587;border-radius:6px;}
+.stats-poster-link {border:0;background:transparent;}
+.stats-poster-link img {aspect-ratio:auto;border:1px solid #655587;border-radius:6px;}
+a.stats-poster-link:hover img {border-color:#ff88c7;}
+.rating-guide-row dt {justify-content:center;align-items:center;}
+.rating-guide-row .alx-moment-card-rating {display:block;margin:0;line-height:1;}
+.rating-guide-row .alx-moment-card-rating::before {display:block;}
