@@ -3,7 +3,7 @@
  const years=(document.currentScript?.dataset.statsYears||'').split(',');
  const current=new Intl.DateTimeFormat('en',{year:'numeric',timeZone:'Europe/Amsterdam'}).format(new Date());
  if(years.includes(current)){
-  location.replace(`/stats/${current}/`);
+  location.replace(`/het-beste-van/${current}/`);
  } else {
   // An unmaintained static site cannot invent future lists; avoid a broken redirect.
   document.addEventListener('DOMContentLoaded',()=>{

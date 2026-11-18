@@ -426,3 +426,34 @@ a.stats-poster-link:hover {border-color:#ff88c7;}
 .about-social-links svg {width:24px;height:24px;fill:currentColor;}
 .about-social-links a:hover {color:#ff70bb;}
 .about-social-links a:focus-visible {outline:2px solid #ffcf7a;outline-offset:3px;}
+
+/* Poster archives share the year lists' rhythm and frames. */
+.alx-moments-archive :is(.alx-moments-group-feed,.alx-moments-archive-feed) {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:42px 24px;}
+.alx-moments-archive :is(.alx-moments-section-title,.alx-favorite-subgroup-title,.moments-month-title),.stats-section-title {font-family:'Press Start 2P',monospace;font-size:1.6rem;line-height:1.7;color:#ffcf7a;}
+.alx-moments-archive .alx-moment-card-media {border:1px solid #655587;border-radius:6px;background:#19182d;overflow:hidden;}
+.alx-moments-archive .alx-moment-card-media img {border-radius:5px;}
+.stats-poster-grid {column-gap:24px;}
+.currently-page .currently-list {grid-template-columns:minmax(0,1fr);}
+.setup-page {max-width:none;}
+.setup-page .setup-intro {margin-top:0;}
+.rating-guide {margin:32px 0;}
+.rating-guide-row {display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;padding:20px 0;border-bottom:1px solid #39334e;align-items:center;}
+.rating-guide-row dt {float:none;width:auto;margin:0;display:flex;align-items:center;gap:12px;}
+.rating-guide-row dd {margin:0;line-height:1.6;}
+.rating-guide-row .alx-moment-card-rating {font-size:2.1rem;flex-shrink:0;}
+.rating-guide-score {font-family:'Space Mono',monospace;font-size:1.4rem;color:#ffcf7a;}
+.end-credits {width:100%;text-align:center;padding:24px 0 56px;}
+.gh-content .end-credits section {margin:56px 0;}
+.gh-content .end-credits h2 {font-family:'Press Start 2P',monospace;font-size:1.4rem;line-height:1.8;color:#ffcf7a;margin:0 0 20px;}
+.gh-content .end-credits p {font-family:'Space Mono',monospace;font-size:1.6rem;line-height:2;margin:12px 0;}
+.gh-content .end-credits .credits-name {font-family:'Pixelify Sans',sans-serif;font-size:clamp(3rem,7vw,5rem);line-height:1.2;color:#ff70bb;}
+.gh-content .end-credits .credits-note {font-size:1.2rem;color:#c9c1da;}
+.gh-content .end-credits .credits-end {font-family:'Press Start 2P',monospace;font-size:2.8rem;color:#ff70bb;margin-top:64px;}
+.credits-end span {color:#ffcf7a;}
+@media(max-width:767px){
+ .alx-moments-archive :is(.alx-moments-group-feed,.alx-moments-archive-feed) {grid-template-columns:repeat(3,minmax(0,1fr));gap:32px 16px;}
+ .alx-moments-group-feed > :nth-child(n+7) {display:none;}
+ .alx-moments-archive :is(.alx-moments-section-title,.alx-favorite-subgroup-title,.moments-month-title),.stats-section-title {font-size:1.3rem;}
+ .stats-poster-grid {column-gap:16px;}
+ .rating-guide-row {grid-template-columns:minmax(0,1fr);gap:10px;}
+}
