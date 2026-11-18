@@ -136,12 +136,12 @@ body {
 }
 
 ::selection {
-    color: var(--theme-background);
+    color: var(--background-color);
     background: var(--color-tag);
 }
 
 ::-moz-selection {
-    color: var(--theme-background);
+    color: var(--background-color);
     background: var(--color-tag);
 }
 
@@ -183,7 +183,7 @@ html.dark-mode body {
 .site-header {
     position: relative;
     z-index: 1;
-    color: var(--theme-heading);
+    color: var(--heading-color);
     background: var(--ghost-accent-color);
 }
 
@@ -212,7 +212,7 @@ html.dark-mode body {
 .has-cover .site-header-content {
     min-height: 560px;
     background-color: var(--ghost-accent-color);
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 .site-header-content.left-aligned {
@@ -311,7 +311,7 @@ html.dark-mode body {
 
 .has-cover .site-description {
     letter-spacing: -0.005em;
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 .has-cover :is(.site-logo, .site-title) + .site-description {
@@ -367,7 +367,7 @@ html.dark-mode body {
     font-size: 1.9rem;
     line-height: 1.3em;
     text-transform: uppercase;
-    color: var(--theme-heading);
+    color: var(--heading-color);
     background-color: transparent;
     backdrop-filter: none;
     -webkit-backdrop-filter: none;
@@ -386,12 +386,12 @@ html.dark-mode body {
 
 .has-sticky-header.has-cover .gh-head {
     background-color: transparent;
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 .has-cover:not(.home-template) .gh-head {
     background-color: transparent;
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 :is(.home-template, .paged:not(.tag-template):not(.author-template)).has-cover:not(.has-sticky-header) .gh-head {
@@ -401,7 +401,7 @@ html.dark-mode body {
     left: 0;
     z-index: 2000;
     background-color: transparent;
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 .gh-head a {
@@ -514,7 +514,7 @@ html.dark-mode body {
     font-weight: 800;
     font-size: 4.1rem;
     letter-spacing: 0;
-    color: var(--theme-heading);
+    color: var(--heading-color);
     text-transform: uppercase;
     white-space: nowrap;
 }
@@ -536,16 +536,16 @@ html.dark-mode body {
     --neon-pink-3-dim: 80px;
     --neon-pink-4-dim: 94px;
     --neon-pink-5-dim: 140px;
-    --neon-color: var(--theme-accent);
+    --neon-color: var(--accent-color-1);
     position: relative;
     display: inline-block;
     overflow: visible;
-    color: var(--theme-heading);
+    color: var(--heading-color);
     text-overflow: ellipsis;
     text-shadow:
-        0 0 var(--neon-core-1) var(--theme-heading),
-        0 0 var(--neon-core-2) var(--theme-heading),
-        0 0 var(--neon-core-3) var(--theme-heading),
+        0 0 var(--neon-core-1) var(--heading-color),
+        0 0 var(--neon-core-2) var(--heading-color),
+        0 0 var(--neon-core-3) var(--heading-color),
         0 0 var(--neon-pink-1) var(--neon-color),
         0 0 var(--neon-pink-2) var(--neon-color),
         0 0 var(--neon-pink-3) var(--neon-color),
@@ -591,7 +591,7 @@ html.dark-mode body {
 }
 
 .has-cover .gh-head-logo {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 .has-sticky-header.has-cover .gh-head-logo {
@@ -832,7 +832,7 @@ html.dark-mode body {
     letter-spacing: -0.005em;
     font-size: 1.8rem;
     border-radius: 48px;
-    color: var(--theme-on-accent);
+    color: var(--background-color);
     background: var(--ghost-accent-color);
 }
 
@@ -932,7 +932,7 @@ html.gh-navigation-open {
 
 .has-cover .gh-burger::before,
 .has-cover .gh-burger::after {
-    background-color: var(--theme-heading);
+    background-color: var(--heading-color);
 }
 
 .has-sticky-header.has-cover .gh-burger::before,
@@ -1004,7 +1004,7 @@ html.gh-navigation-open {
         --neon-pink-3-dim: 16px;
         --neon-pink-4-dim: 20px;
         --neon-pink-5-dim: 28px;
-        --neon-color: rgb(from var(--theme-accent) r g b / 0.72);
+        --neon-color: rgb(from var(--accent-color-1) r g b / 0.72);
         animation: alxndrr-neon-mobile-soft-flicker 0.11s ease-in-out infinite alternate;
     }
 
@@ -1177,11 +1177,11 @@ html.gh-navigation-open {
 .alx-announcement-bar {
     position: relative;
     z-index: 2;
-    color: var(--theme-heading);
+    color: var(--heading-color);
     background:
-        radial-gradient(circle at 12% 50%, rgb(from var(--theme-heading) r g b / 0.18), transparent 30%),
-        linear-gradient(100deg, rgb(from var(--theme-accent) r g b / 0.95) 0%, rgba(163, 20, 98, 0.82) 38%, rgba(63, 72, 132, 0.78) 100%);
-    box-shadow: inset 0 1px 0 rgb(from var(--theme-heading) r g b / 0.12);
+        radial-gradient(circle at 12% 50%, rgb(from var(--heading-color) r g b / 0.18), transparent 30%),
+        linear-gradient(100deg, rgb(from var(--accent-color-1) r g b / 0.95) 0%, rgba(163, 20, 98, 0.82) 38%, rgba(63, 72, 132, 0.78) 100%);
+    box-shadow: inset 0 1px 0 rgb(from var(--heading-color) r g b / 0.12);
 }
 
 .alx-announcement-inner {
@@ -1214,7 +1214,7 @@ html.gh-navigation-open {
     align-items: center;
     gap: 0.35em;
     min-width: 0;
-    color: rgb(from var(--theme-heading) r g b / 0.92);
+    color: rgb(from var(--heading-color) r g b / 0.92);
     font-family: var(--font-menu-custom);
     font-size: clamp(1.35rem, 1.5vw, 1.8rem);
     font-weight: 600;
@@ -1228,16 +1228,16 @@ html.gh-navigation-open {
 }
 
 .alx-announcement-content a {
-    color: var(--theme-heading);
+    color: var(--heading-color);
     text-decoration-line: underline;
     text-decoration-thickness: 2px;
-    text-decoration-color: rgb(from var(--theme-heading) r g b / 0.62);
+    text-decoration-color: rgb(from var(--heading-color) r g b / 0.62);
     text-underline-offset: 0.24em;
 }
 
 .alx-announcement-content a:hover {
-    color: var(--theme-heading);
-    text-decoration-color: var(--theme-link);
+    color: var(--heading-color);
+    text-decoration-color: var(--accent-color-1);
 }
 
 @media (max-width: 767px) {
@@ -1299,7 +1299,7 @@ html.gh-navigation-open {
 
     :is(.home-template, .tag-template) .post-feed .post-card:first-child {
         padding-bottom: 30px;
-        border-bottom: 1px solid rgb(from var(--theme-text) r g b / 0.1);
+        border-bottom: 1px solid rgb(from var(--text-color) r g b / 0.1);
     }
 
     :is(.home-template, .tag-template) .post-feed .post-card:first-child .post-card-image-link {
@@ -1331,7 +1331,7 @@ html.gh-navigation-open {
         column-gap: 22px;
         align-items: start;
         padding: 28px 0;
-        border-bottom: 1px solid rgb(from var(--theme-text) r g b / 0.08);
+        border-bottom: 1px solid rgb(from var(--text-color) r g b / 0.08);
     }
 
     :is(.home-template, .tag-template) .post-feed .post-card:not(:first-child) .post-card-image-link {
@@ -1362,7 +1362,7 @@ html.gh-navigation-open {
         margin-top: 7px;
         font-size: 1.42rem;
         line-height: 1.38;
-        color: rgb(from var(--theme-text) r g b / 0.78);
+        color: rgb(from var(--text-color) r g b / 0.78);
         -webkit-line-clamp: 2;
     }
 
@@ -1407,7 +1407,7 @@ html.gh-navigation-open {
     justify-content: center;
     min-height: 42px;
     padding: 0 22px;
-    color: var(--theme-on-accent);
+    color: var(--background-color);
     font-family: var(--font-menu-custom);
     font-size: 1.35rem;
     font-weight: 600;
@@ -1415,20 +1415,20 @@ html.gh-navigation-open {
     line-height: 1;
     text-transform: uppercase;
     text-decoration: none;
-    border: 1px solid rgb(from var(--theme-accent) r g b / 0.86);
+    border: 1px solid rgb(from var(--accent-color-1) r g b / 0.86);
     border-radius: 999px;
     background:
-        radial-gradient(circle at 18% 0, rgb(from var(--theme-heading) r g b / 0.14), transparent 46%),
-        linear-gradient(100deg, rgb(from var(--theme-accent) r g b / 0.28), rgba(16, 17, 43, 0.52));
-    box-shadow: 0 0 30px rgb(from var(--theme-accent) r g b / 0.24);
+        radial-gradient(circle at 18% 0, rgb(from var(--heading-color) r g b / 0.14), transparent 46%),
+        linear-gradient(100deg, rgb(from var(--accent-color-1) r g b / 0.28), rgba(16, 17, 43, 0.52));
+    box-shadow: 0 0 30px rgb(from var(--accent-color-1) r g b / 0.24);
 }
 
 .alx-home-blog-more-link:hover {
-    color: var(--theme-on-accent);
+    color: var(--background-color);
     text-decoration: none;
-    border-color: rgb(from var(--theme-accent) r g b / 1);
-    background: var(--theme-accent);
-    box-shadow: 0 0 34px rgb(from var(--theme-accent) r g b / 0.34);
+    border-color: rgb(from var(--accent-color-1) r g b / 1);
+    background: var(--accent-color-1);
+    box-shadow: 0 0 34px rgb(from var(--accent-color-1) r g b / 0.34);
 }
 
 .alx-moments-home {
@@ -1460,7 +1460,7 @@ html.gh-navigation-open {
 .alx-moments-archive-description {
     max-width: 62ch;
     margin: 14px 0 0;
-    color: rgb(from var(--theme-text) r g b / 0.82);
+    color: rgb(from var(--text-color) r g b / 0.82);
     font-family: var(--font-body-custom);
     font-size: clamp(1.5rem, 1.7vw, 1.9rem);
     line-height: 1.55;
@@ -1502,7 +1502,7 @@ html.gh-navigation-open {
 .alx-moments-home-description {
     max-width: 54ch;
     margin: -8px 0 22px;
-    color: rgb(from var(--theme-text) r g b / 0.82);
+    color: rgb(from var(--text-color) r g b / 0.82);
     font-family: var(--font-body-custom);
     font-size: clamp(1.5rem, 1.7vw, 1.9rem);
     line-height: 1.45;
@@ -1600,7 +1600,7 @@ html.gh-navigation-open {
 
 .alx-moment-card-title {
     margin: 12px 0 0;
-    color: var(--theme-link);
+    color: var(--accent-color-1);
     font-family: var(--font-body-custom);
     font-size: clamp(1.38rem, 1.5vw, 1.75rem);
     font-weight: 800;
@@ -1619,7 +1619,7 @@ html.gh-navigation-open {
 .alx-moment-card-rating::before {
     content: "★★★★★";
     letter-spacing: 0.06em;
-    background: linear-gradient(90deg, var(--theme-rating) var(--alx-rating-percent), rgb(from var(--theme-text) r g b / 0.26) var(--alx-rating-percent));
+    background: linear-gradient(90deg, var(--accent-color-2) var(--alx-rating-percent), rgb(from var(--text-color) r g b / 0.26) var(--alx-rating-percent));
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -1840,7 +1840,7 @@ html.gh-navigation-open {
     gap: 4px;
     font-size: 1.5rem;
     font-weight: 600;
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 .post-card-content-link {
@@ -2371,9 +2371,9 @@ is the very first element in the post content */
 
 /* Now the content typography styles */
 .gh-content a {
-    color: var(--theme-article-link);
+    color: var(--accent-color-1);
     text-decoration: underline;
-    text-decoration-color: var(--theme-article-link-line);
+    text-decoration-color: var(--accent-color-1);
     text-underline-offset: 0.2em;
     word-break: break-word;
 }
@@ -2704,13 +2704,13 @@ iframe.instagram-media + script + :not([id]) {
 }
 
 .gh-content table:not(.gist table) td:first-child {
-    background-image: linear-gradient(to right, rgb(from var(--theme-heading) r g b / 1) 50%, rgb(from var(--theme-heading) r g b / 0) 100%);
+    background-image: linear-gradient(to right, rgb(from var(--heading-color) r g b / 1) 50%, rgb(from var(--heading-color) r g b / 0) 100%);
     background-size: 20px 100%;
     background-repeat: no-repeat;
 }
 
 .gh-content table:not(.gist table) td:last-child {
-    background-image: linear-gradient(to left, rgb(from var(--theme-heading) r g b / 1) 50%, rgb(from var(--theme-heading) r g b / 0) 100%);
+    background-image: linear-gradient(to left, rgb(from var(--heading-color) r g b / 1) 50%, rgb(from var(--heading-color) r g b / 0) 100%);
     background-position: 100% 0;
     background-size: 20px 100%;
     background-repeat: no-repeat;
@@ -2766,12 +2766,12 @@ iframe.instagram-media + script + :not([id]) {
 }
 
 html.dark-mode .gh-button-share {
-    color: rgb(from var(--theme-heading) r g b / 0.85);
-    border-color: rgb(from var(--theme-heading) r g b / 0.15);
+    color: rgb(from var(--heading-color) r g b / 0.85);
+    border-color: rgb(from var(--heading-color) r g b / 0.15);
 }
 
 html.dark-mode .gh-button-share:hover {
-    border-color: rgb(from var(--theme-heading) r g b / 0.5);
+    border-color: rgb(from var(--heading-color) r g b / 0.5);
 }
 
 .article-byline-content {
@@ -2809,7 +2809,7 @@ html.dark-mode .gh-button-share:hover {
     margin: 0 -4px;
     width: min(56px, 13.6vmin);
     height: min(56px, 13.6vmin);
-    border: var(--theme-heading) 2px solid;
+    border: var(--heading-color) 2px solid;
     border-radius: 50%;
     background-color: var(--color-border);
 }
@@ -2877,7 +2877,7 @@ html.dark-mode .gh-button-share:hover {
 .footer-cta-button span {
     display: inline-block;
     padding: 9px 15px;
-    color: var(--theme-heading);
+    color: var(--heading-color);
     font-size: 1.6rem;
     font-weight: 600;
     letter-spacing: -0.005em;
@@ -3078,7 +3078,7 @@ html.dark-mode .gh-button-share:hover {
 .alx-tags-index-description {
     max-width: 56ch;
     margin: 18px auto 0;
-    color: rgb(from var(--theme-text) r g b / 0.82);
+    color: rgb(from var(--text-color) r g b / 0.82);
     font-family: var(--font-body-custom);
     font-size: clamp(1.55rem, 1.8vw, 1.9rem);
     line-height: 1.55;
@@ -3108,7 +3108,7 @@ html.dark-mode .gh-button-share:hover {
     gap: 18px;
     align-items: baseline;
     padding: 15px 0;
-    border-bottom: 1px solid rgb(from var(--theme-text) r g b / 0.12);
+    border-bottom: 1px solid rgb(from var(--text-color) r g b / 0.12);
 }
 
 .alx-blog-archive-date,
@@ -3147,7 +3147,7 @@ html.dark-mode .gh-button-share:hover {
 
 .alx-blog-archive-link:hover {
     color: var(--color-tag);
-    text-decoration-color: rgb(from var(--theme-accent) r g b / 0.7);
+    text-decoration-color: rgb(from var(--accent-color-1) r g b / 0.7);
 }
 
 .alx-blog-archive-empty,
@@ -3174,9 +3174,9 @@ html.dark-mode .gh-button-share:hover {
     color: var(--color-content);
     text-decoration: none;
     background:
-        radial-gradient(circle at 92% 0, rgb(from var(--theme-accent) r g b / 0.2), transparent 34%),
-        rgb(from var(--theme-heading) r g b / 0.035);
-    border: 1px solid rgb(from var(--theme-text) r g b / 0.14);
+        radial-gradient(circle at 92% 0, rgb(from var(--accent-color-1) r g b / 0.2), transparent 34%),
+        rgb(from var(--heading-color) r g b / 0.035);
+    border: 1px solid rgb(from var(--text-color) r g b / 0.14);
     border-radius: 8px;
     transition: background 0.18s ease, border-color 0.18s ease, transform 0.18s ease;
 }
@@ -3186,7 +3186,7 @@ html.dark-mode .gh-button-share:hover {
     right: -14px;
     bottom: -28px;
     content: "#";
-    color: rgb(from var(--theme-accent) r g b / 0.12);
+    color: rgb(from var(--accent-color-1) r g b / 0.12);
     font-family: var(--font-heading-custom);
     font-size: 12rem;
     font-weight: 800;
@@ -3196,9 +3196,9 @@ html.dark-mode .gh-button-share:hover {
 .alx-tags-index-card:hover {
     color: var(--color-content);
     background:
-        radial-gradient(circle at 92% 0, rgb(from var(--theme-accent) r g b / 0.32), transparent 38%),
-        rgb(from var(--theme-heading) r g b / 0.055);
-    border-color: rgb(from var(--theme-accent) r g b / 0.52);
+        radial-gradient(circle at 92% 0, rgb(from var(--accent-color-1) r g b / 0.32), transparent 38%),
+        rgb(from var(--heading-color) r g b / 0.055);
+    border-color: rgb(from var(--accent-color-1) r g b / 0.52);
     transform: translateY(-2px);
 }
 
@@ -3216,7 +3216,7 @@ html.dark-mode .gh-button-share:hover {
 .alx-tags-index-card-description {
     position: relative;
     z-index: 1;
-    color: rgb(from var(--theme-text) r g b / 0.78);
+    color: rgb(from var(--text-color) r g b / 0.78);
     font-family: var(--font-body-custom);
     font-size: 1.42rem;
     line-height: 1.45;
@@ -3735,7 +3735,7 @@ html.dark-mode .site-footer {
 
 .site-footer-intro-content a {
     padding: 0 0.08em 0.04em;
-    color: var(--theme-article-link);
+    color: var(--accent-color-1);
     font-weight: 700;
     text-decoration: none;
     border-bottom: 1px solid rgba(255, 140, 150, 0.42);
@@ -3815,8 +3815,8 @@ html.dark-mode .site-footer {
 .site-footer-copyright {
     grid-column: 1 / -1;
     padding-top: 28px;
-    border-top: 1px solid rgb(from var(--theme-text) r g b / 0.22);
-    color: rgb(from var(--theme-text) r g b / 0.78);
+    border-top: 1px solid rgb(from var(--text-color) r g b / 0.22);
+    color: rgb(from var(--text-color) r g b / 0.78);
     font-size: 1.4rem;
     line-height: 1.5;
 }
@@ -3930,26 +3930,26 @@ html.dark-mode kbd {
 }
 
 html.dark-mode figcaption a {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode body:not(.has-cover) .gh-head {
     background: transparent;
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode .has-sticky-header.has-cover .gh-head {
     background: transparent;
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode .gh-burger::before,
 html.dark-mode .gh-burger::after {
-    background-color: var(--theme-heading);
+    background-color: var(--heading-color);
 }
 
 html.dark-mode .site-header-content {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode .site-header-cover {
@@ -3985,15 +3985,15 @@ html.dark-mode .post-card-excerpt {
 }
 
 html.dark-mode .pagination a {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode .author-profile-location {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode .author-profile-social-link:hover {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode .article-title {
@@ -4022,11 +4022,11 @@ html.dark-mode .author-profile-image path {
 }
 
 html.dark-mode .article-byline-meta .author-name a {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 html.dark-mode .no-image .author-social-link a {
-    color: rgb(from var(--theme-heading) r g b / 0.75);
+    color: rgb(from var(--heading-color) r g b / 0.75);
 }
 
 html.dark-mode .gh-content > [id] {
@@ -4044,7 +4044,7 @@ html.dark-mode .gh-content :not(pre) > code {
 }
 
 :where(html.dark-mode) .gh-content a {
-    color: var(--theme-article-link);
+    color: var(--accent-color-1);
 }
 
 html.dark-mode .gh-content > blockquote:not([class]),
@@ -4056,12 +4056,12 @@ html.dark-mode .gh-content > p {
 }
 
 html.dark-mode .gh-content code {
-    color: var(--theme-heading);
+    color: var(--heading-color);
     background: #000;
 }
 
 html.dark-mode hr {
-    border-top-color: var(--theme-rule);
+    border-top-color: var(--border-color);
 }
 
 html.dark-mode .gh-content hr:after {
@@ -4070,7 +4070,7 @@ html.dark-mode .gh-content hr:after {
 }
 
 html.dark-mode figcaption {
-    color: rgb(from var(--theme-heading) r g b / 0.6);
+    color: rgb(from var(--heading-color) r g b / 0.6);
 }
 
 html.dark-mode .gh-content table:not(.gist table) td:first-child {
@@ -4082,7 +4082,7 @@ html.dark-mode .gh-content table:not(.gist table) td:last-child {
 }
 
 html.dark-mode .gh-content table:not(.gist table) th {
-    color: rgb(from var(--theme-heading) r g b / 0.85);
+    color: rgb(from var(--heading-color) r g b / 0.85);
     background-color: color-mod(var(--color-darkmode) lightness(17%));
 }
 
@@ -4096,7 +4096,7 @@ html.dark-mode .gh-content :is(input, textarea) {
 }
 
 html.dark-mode .site-archive-header .no-image {
-    color: rgb(from var(--theme-heading) r g b / 0.9);
+    color: rgb(from var(--heading-color) r g b / 0.9);
     background: var(--color-darkmode);
 }
 
@@ -4116,11 +4116,11 @@ html.dark-mode .kg-header-card h3.kg-header-card-subheader {
 html.dark-mode .kg-bookmark-card a.kg-bookmark-container,
 html.dark-mode .kg-bookmark-card a.kg-bookmark-container:hover {
     background: var(--color-darkmode) !important;
-    color: var(--theme-heading) !important;
+    color: var(--heading-color) !important;
 }
 
 html.dark-mode .footer-cta-title {
-    color: var(--theme-heading);
+    color: var(--heading-color);
 }
 
 @media (max-width: 767px) {
@@ -4145,26 +4145,26 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color figcaption a {
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color body:not(.has-cover) .gh-head {
         background: transparent;
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color .has-sticky-header.has-cover .gh-head {
         background: transparent;
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color .gh-burger::before,
     html.auto-color .gh-burger::after {
-        background-color: var(--theme-heading);
+        background-color: var(--heading-color);
     }
 
     html.auto-color .site-header-content {
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color .site-header-cover {
@@ -4200,15 +4200,15 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .pagination a {
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color .author-profile-location {
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color .author-profile-social-link:hover {
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color .article-title {
@@ -4237,20 +4237,20 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .article-byline-meta .author-name a {
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     html.auto-color .gh-button-share {
-        color: rgb(from var(--theme-heading) r g b / 0.85);
-        border-color: rgb(from var(--theme-heading) r g b / 0.15);
+        color: rgb(from var(--heading-color) r g b / 0.85);
+        border-color: rgb(from var(--heading-color) r g b / 0.15);
     }
 
     html.auto-color .gh-button-share:hover {
-        border-color: rgb(from var(--theme-heading) r g b / 0.5);
+        border-color: rgb(from var(--heading-color) r g b / 0.5);
     }
 
     html.auto-color .no-image .author-social-link a {
-        color: rgb(from var(--theme-heading) r g b / 0.75);
+        color: rgb(from var(--heading-color) r g b / 0.75);
     }
 
     html.auto-color .gh-content > [id] {
@@ -4268,7 +4268,7 @@ html.dark-mode .footer-cta-title {
     }
 
     :where(html.auto-color) .gh-content a {
-        color: var(--theme-article-link);
+        color: var(--accent-color-1);
     }
 
     html.auto-color .gh-content > blockquote:not([class]),
@@ -4280,12 +4280,12 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .gh-content code {
-        color: var(--theme-heading);
+        color: var(--heading-color);
         background: #000;
     }
 
     html.auto-color hr {
-        border-top-color: var(--theme-rule);
+        border-top-color: var(--border-color);
     }
 
     html.auto-color .gh-content hr:after {
@@ -4294,7 +4294,7 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color figcaption {
-        color: rgb(from var(--theme-heading) r g b / 0.6);
+        color: rgb(from var(--heading-color) r g b / 0.6);
     }
 
     html.auto-color .gh-content table:not(.gist table) td:first-child {
@@ -4306,7 +4306,7 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .gh-content table:not(.gist table) th {
-        color: rgb(from var(--theme-heading) r g b / 0.85);
+        color: rgb(from var(--heading-color) r g b / 0.85);
         background-color: color-mod(var(--color-darkmode) lightness(17%));
     }
 
@@ -4320,7 +4320,7 @@ html.dark-mode .footer-cta-title {
     }
 
     html.auto-color .site-archive-header .no-image {
-        color: rgb(from var(--theme-heading) r g b / 0.9);
+        color: rgb(from var(--heading-color) r g b / 0.9);
         background: var(--color-darkmode);
     }
 
@@ -4340,11 +4340,11 @@ html.dark-mode .footer-cta-title {
     html.auto-color .kg-bookmark-card a.kg-bookmark-container,
     html.auto-color .kg-bookmark-card a.kg-bookmark-container:hover {
         background: var(--color-darkmode) !important;
-        color: var(--theme-heading) !important;
+        color: var(--heading-color) !important;
     }
 
     html.auto-color .footer-cta-title {
-        color: var(--theme-heading);
+        color: var(--heading-color);
     }
 
     @media (max-width: 767px) {
@@ -4875,7 +4875,7 @@ the right place. Onward!
 .alx-micro-card {
     min-width: 0;
     padding: 26px 0;
-    border-bottom: 1px solid rgb(from var(--theme-text) r g b / 0.16);
+    border-bottom: 1px solid rgb(from var(--text-color) r g b / 0.16);
     color: var(--color-content);
     overflow-wrap: anywhere;
     cursor: pointer;
@@ -4904,7 +4904,7 @@ the right place. Onward!
     overflow: hidden;
     border-radius: 50%;
     color: var(--color-content);
-    background: rgb(from var(--theme-text) r g b / 0.08);
+    background: rgb(from var(--text-color) r g b / 0.08);
 }
 
 .alx-micro-card-avatar img,
@@ -4965,9 +4965,9 @@ the right place. Onward!
 }
 
 .alx-micro-card-body a {
-    color: var(--theme-article-link);
+    color: var(--accent-color-1);
     text-decoration: underline;
-    text-decoration-color: var(--theme-article-link-line);
+    text-decoration-color: var(--accent-color-1);
     text-underline-offset: 0.2em;
 }
 
@@ -5126,7 +5126,7 @@ the right place. Onward!
         grid-column: 3;
         min-width: 0;
         padding: 0 0 0 26px;
-        border-left: 1px solid rgb(from var(--theme-text) r g b / 0.16);
+        border-left: 1px solid rgb(from var(--text-color) r g b / 0.16);
     }
 
     .alx-home-micro-more {
@@ -5219,7 +5219,7 @@ the right place. Onward!
     :is(.home-template, .tag-template) .alx-home-mixed-feed > .alx-micro-card {
         grid-column: span 1;
         padding: 28px 0;
-        border-bottom-color: rgb(from var(--theme-text) r g b / 0.08);
+        border-bottom-color: rgb(from var(--text-color) r g b / 0.08);
     }
 
     :is(.home-template, .tag-template) .alx-home-mixed-feed > .alx-micro-card:first-of-type {
