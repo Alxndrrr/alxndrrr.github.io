@@ -436,7 +436,7 @@ a.stats-poster-link:hover {border-color:#ff88c7;}
 .currently-page .currently-list {grid-template-columns:minmax(0,1fr);}
 .setup-page {max-width:none;}
 .setup-page .setup-intro {margin-top:0;}
-.rating-guide {margin:32px 0;}
+.gh-content .rating-guide {margin:32px 0;padding:0;}
 .rating-guide-row {display:grid;grid-template-columns:170px minmax(0,1fr);gap:24px;padding:20px 0;border-bottom:1px solid #39334e;align-items:center;}
 .rating-guide-row dt {float:none;width:auto;margin:0;display:flex;align-items:center;gap:12px;}
 .rating-guide-row dd {margin:0;line-height:1.6;}
@@ -465,7 +465,7 @@ a.stats-poster-link:hover {border-color:#ff88c7;}
 .stats-poster-link img {aspect-ratio:auto;border:1px solid #655587;border-radius:6px;}
 a.stats-poster-link:hover img {border-color:#ff88c7;}
 .rating-guide-row dt {justify-content:center;align-items:center;}
-.rating-guide-row .alx-moment-card-rating {display:block;margin:0;line-height:1;}
+.rating-guide-row .alx-moment-card-rating {display:block;width:max-content;max-width:100%;margin:0;line-height:1;text-align:left;white-space:nowrap;}
 .rating-guide-row .alx-moment-card-rating::before {display:block;}
 
 /* Ordinary grid columns stretch cards; flexible cover areas align natural images. */
@@ -482,7 +482,7 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
 :is(.alx-moments-archive-description,.currently-page-intro) a:hover {color:#ffcf7a;}
 .rating-guide-row {padding:12px 0;}
 .rating-guide-row dd {font-size:1.6rem;line-height:1.45;}
-@media(max-width:767px){.rating-guide-row {gap:6px;}}
+@media(max-width:767px){.rating-guide-row {gap:8px;}.rating-guide-row dt {justify-content:flex-start;text-align:left;}.rating-guide-row .alx-moment-card-rating {font-size:1.8rem;}}
 
 .alx-moments-archive :is(.alx-moments-group-feed,.alx-moments-archive-feed) {row-gap:24px;}
 @media(max-width:767px){.alx-moments-archive :is(.alx-moments-group-feed,.alx-moments-archive-feed) {row-gap:20px;}}
@@ -575,7 +575,7 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
  .film-dashboard #gh-head.film-hero .gh-head-inner { padding-block:24px 28px; }
  .film-hero-posters { grid-template-columns:repeat(4,minmax(0,1fr)); inset:-45px -20px auto; gap:8px; }
  .film-hero-description { margin-top:16px; max-width:36ch; font-size:13px; }
- .film-dashboard .film-hero .film-back { position:static; display:flex; width:fit-content; margin-top:10px; padding:0 12px; border:1px solid var(--film-line); border-radius:6px; background:#252440; text-decoration:none; }
+ .film-dashboard .film-hero .film-back { position:static; display:flex; width:fit-content; margin-top:8px; padding:0; border:0; border-radius:0; background:transparent; color:#ffb2c6; text-decoration:underline; text-underline-offset:4px; text-decoration-thickness:1px; }
  .film-section-intro { font-size:12px; }
  .film-totals { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
  .film-totals > div { padding:18px; }
@@ -646,3 +646,5 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
  .film-letterboxd,.film-letterboxd img { width:116px; }
  .film-colophon p { font-size:10px; }
 }
+
+.stats-page-header .series-subtitle { margin:0 0 16px; color:#ffcf7a; font:clamp(22px,3vw,30px)/1.3 'Special Gothic Condensed One',sans-serif; text-wrap:balance; }
