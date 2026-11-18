@@ -508,7 +508,7 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
 .film-hero-description { max-width:46ch; margin:16px 0 0; color:#eee9f5; font:15px/1.8 'Space Mono',monospace; text-transform:none; letter-spacing:0; text-wrap:pretty; }
 .film-dashboard .film-hero .film-back { position:absolute; top:20px; right:0; color:#eee9f5; }
 .film-dashboard .film-hero .film-back:hover { color:#ff70bb; }
-.film-totals { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:16px; padding-block:24px; margin:0; }
+.film-totals { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:16px; padding-block:24px; margin:0; }
 .film-totals > div { display:flex; flex-direction:column-reverse; justify-content:flex-end; gap:10px; padding:22px; border-radius:16px; background:#252440; }
 .film-totals dt { float:none; width:auto; margin:0; text-align:left; color:#c9c1da; font:12px/1.7 'Space Mono',monospace; }
 .film-totals dd { margin:0; color:#ffcf7a; font:clamp(26px,3.5vw,44px)/1.2 'Special Gothic Condensed One',sans-serif; font-variant-numeric:tabular-nums; }
@@ -561,6 +561,7 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
 .film-letterboxd img { display:block; width:140px; height:auto; margin:0; }
 .film-dashboard .site-footer { margin-top:48px; }
 .film-dashboard .site-footer .inner { width:100%; max-width:1136px; margin-inline:auto; }
+@media(min-width:768px) and (max-width:1099px) { .film-totals { grid-template-columns:repeat(3,minmax(0,1fr)); } }
 @media(min-width:768px) { .film-chart-columns .film-section-intro,.film-makers .film-section-intro { min-height:3.6em; } }
 @media(min-width:1100px) { .film-dashboard #gh-head .gh-head-inner,.film-dashboard .site-footer .inner { max-width:1136px; } }
 @media(max-width:767px) {
@@ -577,13 +578,16 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
  .film-section-intro { font-size:12px; }
  .film-totals { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
  .film-totals > div { padding:18px; }
- .film-totals > div:last-child { grid-column:1/-1; }
  .film-totals dt { font-size:11px; }
  .film-chart-columns,.film-makers { grid-template-columns:1fr; gap:36px; }
  .film-section { margin-top:48px; }
  .film-section h2 { font-size:13px; }
  .film-poster-grid,.film-decade .film-poster-grid { grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px 16px; }
  .film-poster-item h3 { font-size:14px; }
+ .film-poster-item .alx-moment-card-rating { font-size:10px; }
+ .film-dashboard .site-footer .site-footer-copyright { font-size:12px; line-height:1.7; }
+ .film-decade-heading { flex-direction:column; align-items:flex-start; gap:10px; }
+ .film-decade-summary { text-align:left; }
  .film-poster-note { font-size:10px; }
  .film-decade-heading h3 { font-size:28px; }
  .film-decade-heading p { font-size:11px; }
@@ -618,8 +622,8 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
  .film-donut-total span { font-size:10px; }
 }
 
-.film-hero-letterboxd { position:absolute; right:0; top:92px; display:flex; align-items:center; min-height:44px; }
-.film-hero-letterboxd img { display:block; width:160px; height:auto; margin:0; }
+.film-hero-letterboxd { display:flex; align-items:center; width:fit-content; min-height:44px; margin-top:12px; }
+.film-hero-letterboxd img { display:block; width:128px; height:auto; margin:0; }
 .film-hero-letterboxd:focus-visible { outline:2px solid #ffcf7a; outline-offset:6px; }
 .film-columns { display:grid; grid-template-columns:repeat(var(--column-count),minmax(0,1fr)); gap:12px; margin:0; padding:28px 0 0; list-style:none; }
 .film-columns li { min-width:0; margin:0; }
@@ -629,10 +633,10 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
 .film-language-chart .film-column-bar { background:#ffcf7a; }
 .film-column-label { display:block; margin-top:10px; color:#c9c1da; text-align:center; font:13px/1.5 'Fjalla One',sans-serif; }
 @media(max-width:767px) {
- .film-dashboard #gh-head.film-hero .gh-head-brand { padding-right:100px; }
+ .film-dashboard #gh-head.film-hero .gh-head-brand { padding-right:0; }
  .film-hero-description { max-width:36ch; font-size:12px; }
- .film-hero-letterboxd { top:20px; }
- .film-hero-letterboxd img { width:92px; }
+ .film-hero-letterboxd { margin-top:8px; }
+ .film-hero-letterboxd img { width:112px; }
  .film-columns { gap:6px; }
  .film-column-value { font-size:10px; }
  .film-column-label { font-size:11px; }
