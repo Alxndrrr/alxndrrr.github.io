@@ -468,9 +468,14 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
 .rating-guide-row .alx-moment-card-rating {display:block;margin:0;line-height:1;}
 .rating-guide-row .alx-moment-card-rating::before {display:block;}
 
-/* Equal invisible cover areas keep mixed game formats aligned at the bottom. */
-.alx-moments-archive .alx-moment-card-media {display:flex;align-items:flex-end;justify-content:center;aspect-ratio:2/3;}
-.alx-moments-archive .alx-moment-card-media img {width:auto;height:auto;max-width:100%;max-height:100%;object-fit:contain;}
+/* Shared automatic tracks align each row to its tallest actual cover. */
+.alx-moments-archive .alx-moment-card {grid-row:span 4;grid-template-rows:subgrid;row-gap:8px;align-content:normal;}
+.alx-moments-archive .alx-moment-card-link {grid-row:1;align-self:end;}
+.alx-moments-archive .alx-moment-card-title {grid-row:2;margin:0;}
+.alx-moments-archive .alx-moment-card-rating {grid-row:3;}
+.alx-moments-archive .alx-moment-card-category {grid-row:4;}
+.alx-moments-archive .alx-moment-card-media {display:block;height:auto;aspect-ratio:auto;}
+.alx-moments-archive .alx-moment-card-media img {width:100%;height:auto;max-height:none;aspect-ratio:auto;}
 :is(.alx-moments-archive-description,.currently-page-intro) a {color:#ffb2c6;text-decoration:underline;text-underline-offset:3px;}
 :is(.alx-moments-archive-description,.currently-page-intro) a:hover {color:#ffcf7a;}
 .rating-guide-row {padding:12px 0;}
