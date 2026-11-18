@@ -352,7 +352,7 @@ a.stats-poster-link:hover {border-color:#ff88c7;}
 .home-explore a>span:last-child {text-decoration-thickness:1px;text-underline-offset:4px;}
 .home-explore-icon {flex-basis:20px;}
 .home-explore-icon svg {width:20px;height:20px;}
-.site-footer .site-footer-copyright {font-size:1.25rem;line-height:1.7;}
+.site-footer .site-footer-copyright {font-family:'Pixelify Sans',sans-serif;font-size:1.6rem;line-height:1.7;}
 @media(max-width:480px){.home-explore ul {gap:2px 18px;}.home-explore a {font-size:1.4rem;gap:8px;min-height:34px;}.home-explore-icon {flex-basis:18px;}.home-explore-icon svg {width:18px;height:18px;}}
 
 /* Setup: both columns share an exact centre rule at every viewport. */
