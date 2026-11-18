@@ -5,6 +5,9 @@
 :root[data-theme="bos"]{color-scheme:light;--background-color:#f3f5eb;--surface-color:#e1e8d8;--text-color:#344b38;--heading-color:#1e3426;--muted-color:#556b50;--border-color:#7b9070;--accent-color-1:#29643e;--accent-color-2:#705400;}
 @media(prefers-color-scheme:dark){:root[data-theme="bos"]{color-scheme:dark;--background-color:#101e1a;--surface-color:#20382e;--text-color:#cad8c8;--heading-color:#f0f5e9;--muted-color:#a1b79f;--border-color:#557960;--accent-color-1:#9edba7;--accent-color-2:#f1ce82;}}
 :root[data-theme="bos"] :is(.home-currently,.film-hero){--background-color:#101e1a;--surface-color:#20382e;--text-color:#cad8c8;--heading-color:#f0f5e9;--muted-color:#a1b79f;--border-color:#557960;--accent-color-1:#9edba7;--accent-color-2:#f1ce82;}
+:root[data-theme="eiffel"]{color-scheme:light;--background-color:#2e2c37;--surface-color:#18171c;--text-color:#ffffff;--heading-color:#ff0073;--muted-color:#ffffff;--border-color:#2300ad;--accent-color-1:#5200ff;--accent-color-2:#ffbd37;}
+@media(prefers-color-scheme:dark){:root[data-theme="eiffel"]{color-scheme:dark;--background-color:#2e2c37;--surface-color:#18171c;--text-color:#ffffff;--heading-color:#ff0073;--muted-color:#ffffff;--border-color:#2300ad;--accent-color-1:#5200ff;--accent-color-2:#ffbd37;}}
+:root[data-theme="eiffel"] :is(.home-currently,.film-hero){--background-color:#2e2c37;--surface-color:#18171c;--text-color:#ffffff;--heading-color:#ff0073;--muted-color:#ffffff;--border-color:#2300ad;--accent-color-1:#5200ff;--accent-color-2:#ffbd37;}
 :root {
  /* Compatibility aliases for the existing Ghost base and content cards. */
  --color-background:var(--background-color);
