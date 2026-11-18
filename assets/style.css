@@ -575,7 +575,7 @@ a.stats-poster-link:hover img {border-color:#ff88c7;}
  .film-dashboard #gh-head.film-hero .gh-head-inner { padding-block:24px 28px; }
  .film-hero-posters { grid-template-columns:repeat(4,minmax(0,1fr)); inset:-45px -20px auto; gap:8px; }
  .film-hero-description { margin-top:16px; max-width:36ch; font-size:13px; }
- .film-dashboard .film-hero .film-back { display:none; }
+ .film-dashboard .film-hero .film-back { position:static; display:flex; width:fit-content; margin-top:10px; padding:0 12px; border:1px solid var(--film-line); border-radius:6px; background:#252440; text-decoration:none; }
  .film-section-intro { font-size:12px; }
  .film-totals { grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
  .film-totals > div { padding:18px; }
