@@ -176,7 +176,7 @@ document.documentElement.classList.replace('no-js', 'js');
  const progress=Number(raw);
  const known=raw.trim()!==''&&Number.isFinite(progress)&&progress>=0&&progress<=100;
  if(known){
-  card.querySelector('[data-gta-percent]').textContent=new Intl.NumberFormat('nl-NL',{maximumFractionDigits:2}).format(progress)+'% gespeeld';
+  card.querySelector('[data-gta-percent]').textContent=new Intl.NumberFormat('nl-NL',{maximumFractionDigits:2}).format(progress)+'% voltooid';
   const bar=card.querySelector('[data-gta-bar]');
   bar.setAttribute('aria-valuenow',String(progress));
   bar.removeAttribute('aria-valuetext');
