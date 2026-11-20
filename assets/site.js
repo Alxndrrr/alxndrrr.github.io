@@ -114,14 +114,16 @@ document.documentElement.classList.replace('no-js', 'js');
  const slides=[...carousel.querySelectorAll('[data-currently-slide]')];
  if(slides.length<2)return;
  const reduced=matchMedia('(prefers-reduced-motion:reduce)');
- const interval=Math.max(2,Number(carousel.dataset.interval)||3)*1000;
+ const mobile=matchMedia('(max-width:767px)');
+ const interval=Math.max(2,Number(carousel.dataset.interval)||3);
+ const mobileInterval=Math.max(2,Number(carousel.dataset.mobileInterval)||interval);
  let index=0,timer,start,suppressClick=false;
  const indicator=carousel.querySelector('.currently-indicator');
  const dots=[...carousel.querySelectorAll('[data-currently-dot]')];
  carousel.tabIndex=0;
  carousel.setAttribute('aria-label','Waar ik nu mee bezig ben. Veeg of gebruik de pijltjestoetsen voor een andere kaart.');
  function show(next){index=(next+slides.length)%slides.length;slides.forEach((slide,i)=>{const active=i===index;slide.classList.toggle('is-active',active);slide.inert=!active;slide.setAttribute('aria-hidden',String(!active));});dots.forEach((dot,i)=>dot.classList.toggle('is-active',i===index));if(indicator)indicator.setAttribute('aria-label',`Kaart ${index+1} van ${slides.length}`);}
- function sync(){clearInterval(timer);if(!reduced.matches&&!document.hidden&&!start&&!carousel.matches(':hover')&&!carousel.contains(document.activeElement))timer=setInterval(()=>show(index+1),interval);}
+ function sync(){clearInterval(timer);if(!reduced.matches&&!document.hidden&&!start&&!carousel.matches(':hover')&&!carousel.contains(document.activeElement))timer=setInterval(()=>show(index+1),(mobile.matches?mobileInterval:interval)*1000);}
  carousel.addEventListener('pointerdown',event=>{if(!event.isPrimary||(event.pointerType==='mouse'&&event.button!==0))return;suppressClick=false;start={id:event.pointerId,x:event.clientX,y:event.clientY};clearInterval(timer);event.target.closest('.currently-overview-link')?.setPointerCapture(event.pointerId);});
  carousel.addEventListener('pointerup',event=>{
   if(!start||start.id!==event.pointerId)return;
@@ -135,7 +137,7 @@ document.documentElement.classList.replace('no-js', 'js');
  carousel.addEventListener('keydown',event=>{if(!['ArrowLeft','ArrowRight'].includes(event.key))return;event.preventDefault();show(index+(event.key==='ArrowRight'?1:-1));sync();});
  carousel.addEventListener('mouseenter',sync);carousel.addEventListener('mouseleave',sync);
  carousel.addEventListener('focusin',sync);carousel.addEventListener('focusout',()=>setTimeout(sync,0));
- document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);
+ document.addEventListener('visibilitychange',sync);reduced.addEventListener('change',sync);mobile.addEventListener('change',sync);
  show(0);sync();
 })();
 
