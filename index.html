@@ -25,15 +25,15 @@
     <link rel="icon" href="/favicon.ico" sizes="32x32">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/icons/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png">
-    <link rel="stylesheet" href="/assets/fonts/press-start-2p.css?v=d62ed7ff8ec9">
-    <link rel="stylesheet" href="/assets/fonts/space-mono.css?v=d62ed7ff8ec9">
+    <link rel="stylesheet" href="/assets/fonts/press-start-2p.css?v=c601d1be2887">
+    <link rel="stylesheet" href="/assets/fonts/space-mono.css?v=c601d1be2887">
     <link rel="preload" href="/assets/fonts/pixelify-sans-latin-normal.woff2" as="font" type="font/woff2" crossorigin="">
-    <link rel="stylesheet" href="/assets/fonts/fonts.css?v=d62ed7ff8ec9">
-    <link rel="stylesheet" href="/assets/theme/css/screen.css?v=d62ed7ff8ec9">
-    <link rel="stylesheet" href="/assets/theme/css/cards.css?v=d62ed7ff8ec9">
-    <link rel="stylesheet" href="/assets/style.css?v=d62ed7ff8ec9">
-    <link rel="stylesheet" href="/assets/themes.css?v=d62ed7ff8ec9">
-    <script src="/assets/site.js?v=d62ed7ff8ec9" defer=""></script>
+    <link rel="stylesheet" href="/assets/fonts/fonts.css?v=c601d1be2887">
+    <link rel="stylesheet" href="/assets/theme/css/screen.css?v=c601d1be2887">
+    <link rel="stylesheet" href="/assets/theme/css/cards.css?v=c601d1be2887">
+    <link rel="stylesheet" href="/assets/style.css?v=c601d1be2887">
+    <link rel="stylesheet" href="/assets/themes.css?v=c601d1be2887">
+    <script src="/assets/site.js?v=c601d1be2887" defer=""></script>
 
     <script defer="" src="https://stats.alxndrr.nl/script.js" data-website-id="f833479c-4944-419d-8e78-5b3e383130ac"></script>
 
@@ -86,12 +86,15 @@
 
 
 
+
 <main id="site-main" class="home-flow home-ghost" aria-label="Alxndrr, van boven naar beneden">
     <h1 class="visually-hidden">Alxndrr — films, series, games en tech</h1>
 
     <div class="home-stream-layout">
     
-<section id="gta-vi-tracker" class="gta-card" aria-label="GTA VI: release en mijn voortgang" data-gta-release="2026-11-19T00:01:00+01:00" data-gta-progress="17">
+
+
+<a id="gta-vi-tracker" class="gta-card" href="/collecties/gtavi/" aria-label="GTA VI-voortgang en collectie #GTAVI" data-gta-release="2026-11-19T00:01:00+01:00" data-gta-progress="17">
     <svg class="gta-logo" viewBox="777 448 880 681" role="img" aria-label="Grand Theft Auto VI" xmlns="http://www.w3.org/2000/svg"><image href="/assets/media/gta-vi/logo-official.png" width="2560" height="1440"></image></svg>
     <div class="gta-details">
         <div data-gta-countdown="">
@@ -108,16 +111,9 @@
             <p class="gta-clock" data-gta-percent="">Nog niet doorgegeven</p>
             <div class="gta-track" data-gta-bar="" role="progressbar" aria-label="Mijn voortgang in GTA VI" aria-valuemin="0" aria-valuemax="100" aria-valuetext="Nog niet doorgegeven"><span data-gta-fill=""></span></div>
         </div>
-        
-
-
-<nav class="hashtag-links" aria-label="Collecties">
-    <a href="/collecties/gtavi/">#GTAVI</a>
-</nav>
-
-
+        <span class="gta-collection-label">#GTAVI</span>
     </div>
-</section>
+</a>
 
     <div class="home-top">
     
@@ -433,6 +429,14 @@ Je iPad ziet er ten eerste wat anders uit, dankzij een nieuw ontwerp. Het nieuwe
     </div>
 
     
+
+<nav class="collection-menu" aria-label="Collecties">
+    <a href="/collecties/gtavi/">#GTAVI</a><a href="/collecties/films/">#FILMS</a><a href="/collecties/series/">#SERIES</a><a href="/collecties/games/">#GAMES</a>
+</nav>
+
+
+
+    
     <section class="home-section home-moments" data-home-block="moments" aria-labelledby="moments-title">
         <div class="home-section-heading"><h2 id="moments-title">Momenten</h2><a class="home-section-link" href="/momenten/">Alles bekijken <span aria-hidden="true">→</span></a></div>
         
@@ -468,6 +472,7 @@ Je iPad ziet er ten eerste wat anders uit, dankzij een nieuw ontwerp. Het nieuwe
     <li><a href="https://films.alxndrr.nl/"><span class="home-explore-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="22 5 22 12 21 12 21 8 19 8 19 9 18 9 18 10 17 10 17 11 16 11 16 12 15 12 15 13 14 13 14 14 13 14 13 13 12 13 12 12 11 12 11 11 10 11 10 10 9 10 9 11 8 11 8 12 7 12 7 13 6 13 6 11 7 11 7 10 8 10 8 9 9 9 9 8 10 8 10 9 11 9 11 10 12 10 12 11 13 11 13 12 14 12 14 11 15 11 15 10 16 10 16 9 17 9 17 8 18 8 18 7 19 7 19 6 15 6 15 5 22 5"></polygon><polygon points="23 18 23 20 2 20 2 19 1 19 1 4 3 4 3 18 23 18"></polygon></svg></span><span>Film stats</span></a></li>
     <li><a href="/beste-films/"><span class="home-explore-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18,4v-2H6v2H1v5h1v2h1v1h1v1h1v1h1v1h3v1h2v3h-4v3h10v-3h-4v-3h2v-1h3v-1h1v-1h1v-1h1v-1h1v-2h1v-5h-5Zm-10,9h-2v-1h-1v-1h-1v-2h-1v-3h2v1h1v2h1v3h1v1Zm0-4v-5h8v5h-1v3h-1v2h-4v-2h-1v-3h-1Zm12,0v2h-1v1h-1v1h-2v-1h1v-2h1v-3h1v-1h2v3h-1Z"></path></svg></span><span>Film top 100</span></a></li>
     <li><a href="/beste-games/"><span class="home-explore-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m18,4v-2H6v2H1v5h1v2h1v1h1v1h1v1h1v1h3v1h2v3h-4v3h10v-3h-4v-3h2v-1h3v-1h1v-1h1v-1h1v-1h1v-2h1v-5h-5Zm-10,9h-2v-1h-1v-1h-1v-2h-1v-3h2v1h1v2h1v3h1v1Zm0-4v-5h8v5h-1v3h-1v2h-4v-2h-1v-3h-1Zm12,0v2h-1v1h-1v1h-2v-1h1v-2h1v-3h1v-1h2v3h-1Z"></path></svg></span><span>Games top 100</span></a></li>
+    <li><a href="/collecties/"><span class="home-explore-icon"><svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="8 5 8 7 7 7 7 8 5 8 5 7 4 7 4 5 5 5 5 4 7 4 7 5 8 5"></polygon><path d="m22,13v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1H2v1h-1v9h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h2v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-1h1v-2h-1ZM3,3h7v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v2h-1v1h-1v1h-1v1h-1v1h-1v1h-2v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1V3Z"></path></svg></span><span>Collecties</span></a></li>
 </ul></nav>
 
 </main>
