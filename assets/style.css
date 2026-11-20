@@ -737,6 +737,7 @@ a.stats-poster-link:hover img {border-color:var(--accent-color-1);}
 @media(min-width:1100px) {
  .hashtag-featured {grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
  .hashtag-page .alx-home-desktop {display:grid;grid-template-columns:minmax(0,1fr);gap:48px;padding-top:0;}
+ .hashtag-page .alx-home-desktop:not(:has(.alx-home-micro)) .alx-home-regular-feed {grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:36px 28px;}
  .hashtag-page .alx-home-desktop > .alx-home-micro {grid-area:auto;}
  .hashtag-page .alx-home-desktop:has(.alx-home-blog-column + .alx-home-micro) {grid-template-columns:minmax(0,2fr) minmax(300px,1fr);}
  .hashtag-page .alx-home-desktop:has(.alx-home-blog-column + .alx-home-micro) > .alx-home-blog-column {grid-area:1 / 1;}
