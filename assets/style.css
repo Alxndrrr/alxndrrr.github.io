@@ -164,6 +164,7 @@ html {scrollbar-color:var(--accent-color-1) var(--background-color);}
 .currently-page {margin-bottom:64px;}
 .currently-page .home-section-heading h1 {font-family:var(--font-heading-custom);font-size:clamp(2.8rem,4vw,4.2rem);font-weight:800;line-height:1.05;text-transform:uppercase;color:var(--heading-color);margin:0;}
 .currently-page-intro {font-family:var(--font-body-custom);margin-bottom:28px;}
+.currently-page .currently-copy :is(h2,h3) > a {color:inherit;}
 .currently-list {display:grid;gap:24px;}
 .currently-list .home-currently {height:auto;min-height:172px;}
 .currently-list + .currently-paused {margin-top:32px;}
