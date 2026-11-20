@@ -692,3 +692,26 @@ a.stats-poster-link:hover img {border-color:var(--accent-color-1);}
   font-family:var(--font-body-custom);
  }
 }
+
+/* Collecties gebruiken de blogkaarten en microblogkolom van de homepage. */
+.hashtag-links {
+ display:flex;flex-wrap:wrap;gap:4px 14px;margin-top:12px;
+ font-family:var(--font-menu-custom);font-size:1.5rem;
+}
+.hashtag-links a {color:var(--accent-color-1);text-decoration:underline;text-underline-offset:3px;}
+.hashtag-links a:hover,.hashtag-links a:focus-visible {color:var(--accent-color-2);}
+.site-content > .hashtag-links {width:min(var(--content-width),calc(100% - 2 * var(--page-gutter)));margin:24px auto 48px;}
+.tags-hashtags {margin-top:40px;}
+.hashtag-page {margin-bottom:56px;}
+.hashtag-page-head {margin-bottom:24px;}
+.hashtag-page-head h1 {font:400 clamp(2.8rem,5vw,4.4rem)/1.15 var(--font-heading-custom);color:var(--heading-color);margin:0;overflow-wrap:anywhere;}
+.hashtag-featured {display:grid;gap:16px;margin-bottom:32px;}
+.hashtag-featured .gta-card {grid-area:auto;margin:0;}
+.hashtag-nu-link {display:block;min-width:0;color:inherit;}
+.currently-page .home-currently[id] {scroll-margin-top:24px;}
+@media(min-width:1100px) {
+ .hashtag-featured {grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+ .hashtag-page .alx-home-desktop {display:grid;grid-template-columns:minmax(0,1fr);gap:48px;padding-top:0;}
+ .hashtag-page .alx-home-desktop:has(.alx-home-blog-column):has(.alx-home-micro) {grid-template-columns:minmax(0,2fr) minmax(300px,1fr);}
+ .hashtag-page .alx-home-desktop .alx-home-blog-column,.hashtag-page .alx-home-micro {grid-area:auto;}
+}
